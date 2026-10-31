@@ -1,0 +1,3120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="音楽対策ノート">
+  <title>小学校音楽 教採対策ノート｜共通教材・鑑賞教材・時代別作曲家</title>
+  <style>
+    :root {
+      --bg-main: #f6f8fb;
+      --bg-surface: #ffffff;
+      --bg-subtle: #eef2f7;
+      --bg-accent-soft: #e8f0fe;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #cbd5e1;
+      --border-light: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-text: #ffffff;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --success: #16a34a;
+      --success-soft: #dcfce7;
+      --warning: #d97706;
+      --warning-soft: #fef3c7;
+      --mask-bg: #ef4444;
+      --mask-bg-hover: #dc2626;
+      --mask-text: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    [data-theme="dark"] {
+      --bg-main: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-subtle: #334155;
+      --bg-accent-soft: #1e3a8a;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: #475569;
+      --border-light: #334155;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --primary-text: #ffffff;
+      --danger: #ef4444;
+      --danger-soft: #451a1a;
+      --success: #22c55e;
+      --success-soft: #143523;
+      --warning: #f59e0b;
+      --warning-soft: #422c10;
+      --mask-bg: #b91c1c;
+      --mask-bg-hover: #991b1b;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.55;
+      font-size: 14px;
+      padding-bottom: 48px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* Header */
+    .app-header {
+      background: var(--bg-surface);
+      padding-top: env(safe-area-inset-top, 0px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: var(--bg-subtle);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--primary-text);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+
+    .btn-danger {
+      background: var(--danger-soft);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .btn-danger:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-mask-active {
+      background: var(--mask-bg);
+      border-color: var(--mask-bg);
+      color: #fff;
+    }
+
+    .btn-mask-active:hover {
+      background: var(--mask-bg-hover);
+      border-color: var(--mask-bg-hover);
+    }
+
+    .btn-sm {
+      padding: 4px 9px;
+      font-size: 12px;
+    }
+
+    .btn-yt {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #dc2626;
+      font-weight: 600;
+    }
+
+    [data-theme="dark"] .btn-yt {
+      background: #3f1d1d;
+      border-color: #7f1d1d;
+      color: #fca5a5;
+    }
+
+    .btn-yt:hover {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: #ffffff;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Progress & Summary Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stat-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stat-nums {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-fill-mastered {
+      background: var(--success);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .progress-fill-review {
+      background: var(--warning);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    /* Main Navigation Tabs */
+    .main-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: var(--primary-text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-badge {
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.22);
+      color: inherit;
+    }
+
+    .tab-btn:not(.active) .tab-badge {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    /* Control Panel / Filters */
+    .control-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1 1 260px;
+      min-width: 220px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 32px 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-size: 13px;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 2px 4px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-right: 2px;
+    }
+
+    .pill-btn {
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pill-btn:hover {
+      background: var(--bg-subtle);
+    }
+
+    .pill-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Red Sheet Sub-toolbar */
+    .mask-toolbar {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: #9f1239;
+    }
+
+    [data-theme="dark"] .mask-toolbar {
+      background: #3f121d;
+      border-color: #881337;
+      color: #fda4af;
+    }
+
+    .mask-toolbar.visible {
+      display: flex;
+    }
+
+    .mask-checks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mask-checks label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Era Summary Info Box */
+    .era-summary-box {
+      background: var(--bg-accent-soft);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .era-summary-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    [data-theme="dark"] .era-summary-title {
+      color: #93c5fd;
+    }
+
+    /* Table & Responsive Layout */
+    .table-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    table.study-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    table.study-table th {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.study-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+      font-size: 13.5px;
+    }
+
+    table.study-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.study-table tr:hover td {
+      background-color: rgba(37, 99, 235, 0.02);
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .grade-1 { background: #fee2e2; color: #b91c1c; }
+    .grade-2 { background: #ffedd5; color: #c2410c; }
+    .grade-3 { background: #fef3c7; color: #b45309; }
+    .grade-4 { background: #dcfce7; color: #15803d; }
+    .grade-5 { background: #dbeafe; color: #1d4ed8; }
+    .grade-6 { background: #f3e8ff; color: #6d28d9; }
+    .grade-other { background: #e2e8f0; color: #334155; }
+
+    [data-theme="dark"] .grade-1 { background: #451a1a; color: #fca5a5; }
+    [data-theme="dark"] .grade-2 { background: #432010; color: #fdba74; }
+    [data-theme="dark"] .grade-3 { background: #422c10; color: #fcd34d; }
+    [data-theme="dark"] .grade-4 { background: #143523; color: #86efac; }
+    [data-theme="dark"] .grade-5 { background: #1e3a8a; color: #93c5fd; }
+    [data-theme="dark"] .grade-6 { background: #3b1c5e; color: #d8b4fe; }
+    [data-theme="dark"] .grade-other { background: #334155; color: #cbd5e1; }
+
+    .cat-shoka { background: #e0f2fe; color: #0369a1; }
+    .cat-warabe { background: #fce7f3; color: #be185d; }
+    .cat-koka { background: #fef3c7; color: #92400e; }
+    .cat-koyo { background: #ede9fe; color: #5b21b6; }
+    .cat-author { background: #dcfce7; color: #166534; }
+
+    [data-theme="dark"] .cat-shoka { background: #0c4a6e; color: #7dd3fc; }
+    [data-theme="dark"] .cat-warabe { background: #500724; color: #f472b6; }
+    [data-theme="dark"] .cat-koka { background: #451a03; color: #fcd34d; }
+    [data-theme="dark"] .cat-koyo { background: #2e1065; color: #c4b5fd; }
+    [data-theme="dark"] .cat-author { background: #064e3b; color: #6ee7b7; }
+
+    .era-baroque { background: #fef3c7; color: #92400e; }
+    .era-classical { background: #dbeafe; color: #1e40af; }
+    .era-romantic { background: #fce7f3; color: #9d174d; }
+    .era-national { background: #dcfce7; color: #166534; }
+    .era-modern { background: #f3e8ff; color: #5b21b6; }
+    .era-japan { background: #ffedd5; color: #9a3412; }
+
+    [data-theme="dark"] .era-baroque { background: #451a03; color: #fcd34d; }
+    [data-theme="dark"] .era-classical { background: #1e3a8a; color: #93c5fd; }
+    [data-theme="dark"] .era-romantic { background: #500724; color: #f472b6; }
+    [data-theme="dark"] .era-national { background: #064e3b; color: #6ee7b7; }
+    [data-theme="dark"] .era-modern { background: #2e1065; color: #c4b5fd; }
+    [data-theme="dark"] .era-japan { background: #431407; color: #fdba74; }
+
+    /* Masking (Red Sheet) */
+    .maskable {
+      display: inline-block;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .maskable.is-masked {
+      background-color: var(--mask-bg);
+      color: transparent !important;
+      padding: 2px 8px;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    .maskable.is-masked * {
+      visibility: hidden;
+    }
+
+    .maskable.is-masked::after {
+      content: "タップで表示";
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 10px;
+      font-weight: 600;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      visibility: visible;
+    }
+
+    .maskable.is-revealed {
+      background-color: rgba(239, 68, 68, 0.12);
+      border: 1px dashed var(--mask-bg);
+      padding: 1px 6px;
+      cursor: pointer;
+    }
+
+    /* Inline Notes Textarea */
+    .note-box-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 240px;
+    }
+
+    .inline-note {
+      width: 100%;
+      min-height: 60px;
+      padding: 7px 9px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 12.5px;
+      line-height: 1.45;
+      resize: vertical;
+      transition: border-color 0.15s;
+    }
+
+    .inline-note:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--bg-surface);
+    }
+
+    .note-saved-hint {
+      font-size: 11px;
+      color: var(--success);
+      opacity: 0;
+      transition: opacity 0.2s;
+      height: 14px;
+    }
+
+    .note-saved-hint.show {
+      opacity: 1;
+    }
+
+    /* Status Button */
+    .status-btn {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .status-unstarted {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    .status-review {
+      background: var(--warning-soft);
+      border-color: var(--warning);
+      color: var(--warning);
+    }
+
+    .status-mastered {
+      background: var(--success-soft);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .sub-meta {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .song-title-main {
+      font-weight: 700;
+      font-size: 14.5px;
+    }
+
+    .action-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .row-actions {
+      display: flex;
+      gap: 4px;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .modal-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .modal-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-size: 13.5px;
+      font-family: inherit;
+    }
+
+    /* Toast */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 120;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toast {
+      background: #1e293b;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      animation: fadeInUp 0.2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cheat Sheet Grid */
+    .cheat-section {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      background: var(--bg-main);
+    }
+
+    .cheat-section h4 {
+      font-size: 13.5px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .cheat-section ul {
+      padding-left: 18px;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Responsive Mobile Card Layout */
+    @media (max-width: 820px) {
+      table.study-table thead {
+        display: none;
+      }
+      table.study-table,
+      table.study-table tbody,
+      table.study-table tr,
+      table.study-table td {
+        display: block;
+        width: 100%;
+      }
+      table.study-table tr {
+        border-bottom: 2px solid var(--border-color);
+        padding: 12px;
+      }
+      table.study-table td {
+        border-bottom: none;
+        padding: 6px 4px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px;
+      }
+      table.study-table td::before {
+        content: attr(data-label);
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--text-muted);
+        min-width: 90px;
+        flex-shrink: 0;
+      }
+      .note-box-wrap {
+        width: 100%;
+        min-width: 0;
+      }
+      .action-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-icon" aria-hidden="true">♪</div>
+        <div>
+          <h1 class="brand-title">小学校音楽 教採対策ノート</h1>
+          
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" id="btnToggleMask" class="btn">
+          <span>赤シート暗記: OFF</span>
+        </button>
+        <button type="button" id="btnOpenCheatSheet" class="btn">
+          <span>教採頻出まとめ</span>
+        </button>
+        <button type="button" id="btnOpenAddModal" class="btn btn-primary">
+          <span>＋ 曲を追加</span>
+        </button>
+        <button type="button" id="btnOpenDataModal" class="btn">
+          <span>データ管理</span>
+        </button>
+        <button type="button" id="btnBackPortal" class="btn" title="マイページへ戻る">🏠</button>
+        <button type="button" id="btnToggleTheme" class="btn" title="ダークモード切替">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- Progress Summary -->
+    <section class="stats-bar" aria-label="学習進捗">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>歌唱共通教材（全24曲）習得状況</span>
+          <span id="statCommonText" class="stat-nums">0 / 24 曲</span>
+        </div>
+        <div class="progress-track">
+          <div id="barCommonMastered" class="progress-fill-mastered" style="width: 0%"></div>
+          <div id="barCommonReview" class="progress-fill-review" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>鑑賞教材・時代別作曲家 習得状況</span>
+          <span id="statApprecText" class="stat-nums">0 / 0 曲</span>
+        </div>
+        <div class="progress-track">
+          <div id="barApprecMastered" class="progress-fill-mastered" style="width: 0%"></div>
+          <div id="barApprecReview" class="progress-fill-review" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="main-tabs" aria-label="メインタブ">
+      <button type="button" class="tab-btn active" data-tab="common">
+        <span>1. 歌唱共通教材（学年別）</span>
+        <span id="badgeCommonCount" class="tab-badge">24</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="appreciation">
+        <span>2. 鑑賞教材（学年別）</span>
+        <span id="badgeApprecCount" class="tab-badge">0</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="composers">
+        <span>3. 作曲家から曲を確認（時代別）</span>
+        <span id="badgeComposerCount" class="tab-badge">0</span>
+      </button>
+    </nav>
+
+    <!-- Controls & Filters -->
+    <section class="control-panel" aria-label="検索と絞り込み">
+      <div class="filter-row">
+        <div class="search-box">
+          <input type="text" id="searchInput" class="search-input" placeholder="曲名・作曲家・作詞者・出身国・補足メモから検索...">
+          <button type="button" id="btnClearSearch" class="search-clear" title="検索クリア">✕</button>
+        </div>
+
+        <div class="pill-group" id="statusFilterGroup">
+          <span class="pill-label">学習状況:</span>
+          <button type="button" class="pill-btn active" data-status="all">すべて</button>
+          <button type="button" class="pill-btn" data-status="review">要復習</button>
+          <button type="button" class="pill-btn" data-status="unstarted">未着手</button>
+          <button type="button" class="pill-btn" data-status="mastered">習得済</button>
+        </div>
+      </div>
+
+      <!-- Grade Filter Row (Used in Tab 1 & Tab 2) -->
+      <div class="filter-row" id="gradeFilterRow">
+        <div class="pill-group" id="gradeFilterGroup">
+          <span class="pill-label">学年:</span>
+          <button type="button" class="pill-btn active" data-grade="all">全学年</button>
+          <button type="button" class="pill-btn" data-grade="1">第1学年</button>
+          <button type="button" class="pill-btn" data-grade="2">第2学年</button>
+          <button type="button" class="pill-btn" data-grade="3">第3学年</button>
+          <button type="button" class="pill-btn" data-grade="4">第4学年</button>
+          <button type="button" class="pill-btn" data-grade="5">第5学年</button>
+          <button type="button" class="pill-btn" data-grade="6">第6学年</button>
+          <button type="button" class="pill-btn" data-grade="other" id="btnGradeOther" style="display:none;">音楽史・共通</button>
+        </div>
+      </div>
+
+      <!-- Category Filter Row (Used in Tab 1: Common Repertoire) -->
+      <div class="filter-row" id="categoryFilterRow">
+        <div class="pill-group" id="categoryFilterGroup">
+          <span class="pill-label">種別:</span>
+          <button type="button" class="pill-btn active" data-category="all">すべて</button>
+          <button type="button" class="pill-btn" data-category="文部省唱歌">文部省唱歌（全般）</button>
+          <button type="button" class="pill-btn" data-category="指導要領：文部省唱歌のみ">指導要領「文部省唱歌」表記のみ</button>
+          <button type="button" class="pill-btn" data-category="わらべうた">わらべうた</button>
+          <button type="button" class="pill-btn" data-category="古歌">古歌</button>
+          <button type="button" class="pill-btn" data-category="日本古謡">日本古謡</button>
+          <button type="button" class="pill-btn" data-category="作詞・作曲明記">作詞・作曲者明記</button>
+        </div>
+      </div>
+
+      <!-- Era Filter Row (Used in Tab 3: Composers by Era) -->
+      <div class="filter-row" id="eraFilterRow" style="display: none;">
+        <div class="pill-group" id="eraFilterGroup">
+          <span class="pill-label">時代区分:</span>
+          <button type="button" class="pill-btn active" data-era="all">すべての時代</button>
+          <button type="button" class="pill-btn" data-era="バロック音楽">バロック音楽</button>
+          <button type="button" class="pill-btn" data-era="古典派の音楽">古典派の音楽</button>
+          <button type="button" class="pill-btn" data-era="ロマン派の音楽">ロマン派の音楽</button>
+          <button type="button" class="pill-btn" data-era="国民楽派の音楽">国民楽派の音楽</button>
+          <button type="button" class="pill-btn" data-era="近代・現代の音楽">近代・現代の音楽</button>
+          <button type="button" class="pill-btn" data-era="日本の伝統・郷土音楽">日本の伝統・郷土音楽</button>
+        </div>
+      </div>
+
+      <!-- Red Sheet Mask Options -->
+      <div id="maskToolbar" class="mask-toolbar">
+        <div class="mask-checks">
+          <strong>赤シートで隠す項目:</strong>
+          <label><input type="checkbox" class="mask-check" value="title" checked> 曲名</label>
+          <label><input type="checkbox" class="mask-check" value="person" checked> 作詞・作曲家</label>
+          <label><input type="checkbox" class="mask-check" value="category" checked> 種別・時代区分</label>
+          <label><input type="checkbox" class="mask-check" value="country" checked> 出身国</label>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button type="button" id="btnRevealAll" class="btn btn-sm">すべてめくる</button>
+          <button type="button" id="btnHideAll" class="btn btn-sm">すべて隠す</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Era Feature Banner (Shown in Tab 3) -->
+    <div id="eraSummaryBanner" class="era-summary-box" style="display: none;">
+      <div id="eraSummaryTitle" class="era-summary-title">音楽史・時代区分の特徴</div>
+      <div id="eraSummaryBody"></div>
+    </div>
+
+    <!-- Main Table Area -->
+    <div class="table-wrapper">
+      <table class="study-table" id="studyTable">
+        <thead id="tableHead"></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div id="emptyState" class="empty-state" style="display: none;">
+        条件に一致する曲がありません。フィルタや検索キーワードを変更してください。
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Add / Edit Song -->
+  <div id="songModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="songModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="songModalTitle" class="modal-title">曲データの追加・編集</h2>
+        <button type="button" id="btnCloseSongModal" class="modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <form id="songForm">
+        <div class="modal-body">
+          <input type="hidden" id="formSongId">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="formDatasetType">登録先カテゴリ</label>
+              <select id="formDatasetType" class="form-control">
+                <option value="common">歌唱共通教材（学年別）</option>
+                <option value="appreciation">鑑賞教材・時代別作曲家（統合管理）</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="formGrade">学年</label>
+              <select id="formGrade" class="form-control">
+                <option value="1">第1学年</option>
+                <option value="2">第2学年</option>
+                <option value="3">第3学年</option>
+                <option value="4">第4学年</option>
+                <option value="5">第5学年</option>
+                <option value="6">第6学年</option>
+                <option value="other">音楽史・共通（学年指定なし）</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="formTitle">曲名（必須）</label>
+              <input type="text" id="formTitle" class="form-control" required placeholder="例：春の小川 / 組曲『惑星』より「木星」">
+            </div>
+            <div class="form-group" id="groupCategory">
+              <label for="formCategory">種別（共通教材用）</label>
+              <select id="formCategory" class="form-control">
+                <option value="文部省唱歌">文部省唱歌</option>
+                <option value="わらべうた">わらべうた</option>
+                <option value="古歌">古歌</option>
+                <option value="日本古謡">日本古謡</option>
+                <option value="古歌・日本古謡">古歌・日本古謡</option>
+                <option value="創作曲（作詞・作曲明記）">創作曲（作詞・作曲明記）</option>
+              </select>
+            </div>
+            <div class="form-group" id="groupEra" style="display: none;">
+              <label for="formEra">時代区分（鑑賞・作曲家用）</label>
+              <select id="formEra" class="form-control">
+                <option value="バロック音楽">バロック音楽</option>
+                <option value="古典派の音楽">古典派の音楽</option>
+                <option value="ロマン派の音楽">ロマン派の音楽</option>
+                <option value="国民楽派の音楽">国民楽派の音楽</option>
+                <option value="近代・現代の音楽">近代・現代の音楽</option>
+                <option value="日本の伝統・郷土音楽">日本の伝統・郷土音楽</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group" id="groupLyricist">
+              <label for="formLyricist">作詞者</label>
+              <input type="text" id="formLyricist" class="form-control" placeholder="例：高野辰之 / 文部省唱歌">
+            </div>
+            <div class="form-group">
+              <label for="formComposer">作曲者・作曲家（必須）</label>
+              <input type="text" id="formComposer" class="form-control" required placeholder="例：岡野貞一 / ヴィヴァルディ">
+            </div>
+            <div class="form-group" id="groupCountry" style="display: none;">
+              <label for="formCountry">出身国</label>
+              <input type="text" id="formCountry" class="form-control" placeholder="例：イタリア / ドイツ / オーストリア">
+            </div>
+            <div class="form-group" id="groupSubInfo">
+              <label for="formSubInfo">拍子・調・指導要領表記メモ</label>
+              <input type="text" id="formSubInfo" class="form-control" placeholder="例：4/4拍子・ヘ長調｜指導要領：作詞・作曲者表記">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="formYoutubeUrl">音源リンク（YouTube URL または 空欄で自動YouTube検索）</label>
+            <input type="url" id="formYoutubeUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=... （空欄の場合は曲名＋作曲家でYouTube検索を開きます）">
+          </div>
+
+          <div class="form-group">
+            <label for="formNotes">補足事項・教採対策メモ</label>
+            <textarea id="formNotes" class="form-control" rows="4" placeholder="拍子・調・音階・曲の特徴・楽器編成・学習指導要領のポイントなどを記入"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="formImageInput">楽譜・参考画像</label>
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <input type="file" id="formImageInput" accept="image/*" class="form-control" style="max-width:280px; font-size:12px;">
+              <button type="button" id="btnClearFormImage" class="btn btn-sm" style="display:none;">画像を削除</button>
+            </div>
+            <div id="formImagePreviewWrap" style="display:none; margin-top:6px;">
+              <img id="formImagePreview" src="" alt="添付画像プレビュー" style="max-height:120px; border-radius:6px; border:1px solid var(--border-color);">
+            </div>
+          </div>
+        </div>
+        <div id="songDeleteConfirmBox" style="display:none; margin: 0 20px 12px 20px; padding:10px 12px; background:var(--danger-soft); border:1px solid var(--danger); border-radius:var(--radius-sm);">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:12.5px; font-weight:700; color:var(--danger);">この曲データを削除しますか？</span>
+            <div style="display:flex; gap:6px;">
+              <button type="button" id="btnConfirmDeleteSong" class="btn btn-danger btn-sm">削除する</button>
+              <button type="button" id="btnCancelDeleteSong" class="btn btn-sm">キャンセル</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnDeleteInModal" class="btn btn-danger" style="margin-right: auto; display: none;">この曲を削除</button>
+          <button type="button" id="btnCancelSongModal" class="btn">キャンセル</button>
+          <button type="submit" class="btn btn-primary">保存する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Exam Cheat Sheet -->
+  <div id="cheatModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cheatModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="cheatModalTitle" class="modal-title">教員採用試験 音楽・直前チェック虎の巻</h2>
+        <button type="button" id="btnCloseCheatModal" class="modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="cheat-section">
+          <h4>1. 歌唱共通教材（全24曲）の種別・出典ひっかけ対策</h4>
+          <ul>
+            <li><strong>唯一の「わらべうた」</strong>：第1学年『ひらいたひらいた』（1曲のみ）</li>
+            <li><strong>唯一の「古歌」単独表記</strong>：第5学年『子もり歌』（「日本古謡」とのひっかけが超頻出！）</li>
+            <li><strong>「日本古謡」表記（2曲）</strong>：第3学年『うさぎ』、第4学年『さくらさくら』</li>
+            <li><strong>「古歌（詞）・日本古謡（曲）」併記</strong>：第6学年『越天楽今様』</li>
+            <li><strong>文部省唱歌以外で個人名が明記されている2曲</strong>：第2学年『夕やけこやけ』（中村雨紅／草川信）、第4学年『とんび』（葛原しげる／梁田貞）</li>
+            <li><strong>学習指導要領で「文部省唱歌」とだけ表記される8曲</strong>：①かたつむり(1年)、②日のまる(1年)、③虫のこえ(2年)、④茶つみ(3年)、⑤ふじ山(3年)、⑥こいのぼり(5年)、⑦冬げしき(5年)、⑧われは海の子(6年) ※『まきばの朝』(4年)は「文部省唱歌／船橋栄吉作曲」</li>
+          </ul>
+        </div>
+        <div class="cheat-section">
+          <h4>2. 作詞家・作曲家コンビ別の整理（共通教材）</h4>
+          <ul>
+            <li><strong>高野辰之（詞）× 岡野貞一（曲）の5曲（＋日のまる）</strong>：2年『春が来た』、3年『春の小川』、4年『もみじ』、6年『おぼろ月夜』、6年『ふるさと』（※すべて文部省唱歌初出だが指導要領では個人名表記）</li>
+            <li><strong>林柳波（詞）の3曲</strong>：1年『うみ』（曲：井上武士）、2年『かくれんぼ』（曲：下総皖一）、5年『スキーの歌』（曲：橋本国彦）</li>
+          </ul>
+        </div>
+        <div class="cheat-section">
+          <h4>3. 拍子・音階の頻出チェック（共通教材）</h4>
+          <ul>
+            <li><strong>3拍子（3/4拍子）の5曲</strong>：1年『うみ』、5年『こいのぼり』、5年『冬げしき』、6年『おぼろ月夜』、6年『ふるさと』</li>
+            <li><strong>8分の6拍子（6/8拍子）の2曲</strong>：5年『スキーの歌』、6年『われは海の子』</li>
+            <li><strong>日本の音階を使う4曲</strong>：1年『ひらいたひらいた』（陽音階）、3年『うさぎ』（都節・陰音階）、4年『さくらさくら』（都節・陰音階）、5年『子もり歌』（都節・陰音階）、6年『越天楽今様』（律音階）</li>
+          </ul>
+        </div>
+        <div class="cheat-section">
+          <h4>4. 西洋音楽史・時代区分の流れ</h4>
+          <ul>
+            <li><strong>バロック（1600頃〜1750頃）</strong>：通奏低音、対位法（フーガ）、リトルネッロ形式。ヴィヴァルディ（伊）、J.S.バッハ（独・音楽の父）、ヘンデル（独→英・音楽の母）。</li>
+            <li><strong>古典派（1750頃〜1820頃）</strong>：ソナタ形式の確立、交響曲・弦楽四重奏の発展。ハイドン（墺・交響曲の父）、モーツァルト（墺）、ベートーヴェン（独・楽聖）。</li>
+            <li><strong>ロマン派（19世紀）</strong>：個人の感情表現、標題音楽、ピアノ小品や歌曲の発展。シューベルト（歌曲王）、ショパン（ピアノの詩人）、シューマン、ビゼー、サン＝サーンス、チャイコフスキー等。</li>
+            <li><strong>国民楽派（19世紀後半）</strong>：東欧・北欧・ロシア等で自国の民謡や歴史・民族意識を表現。スメタナ、ドヴォルザーク（チェコ）、グリーグ（ノルウェー）、ムソルグスキー、ボロディン（ロシア5人組）。</li>
+            <li><strong>近代・現代（19世紀末〜）</strong>：印象主義（ドビュッシー、ラヴェル）、多様なリズム・編成（ホルスト、プロコフィエフ、ストラヴィンスキー）、日本の西洋音楽受容と発展（滝廉太郎、山田耕筰、武満徹）。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCloseCheatFooter" class="btn btn-primary">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Data Backup / Reset -->
+  <div id="dataModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="dataModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="dataModalTitle" class="modal-title">データのバックアップ・復元・初期化</h2>
+        <button type="button" id="btnCloseDataModal" class="modal-close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <h4 style="font-size:13.5px; margin-bottom:8px;">GitHub Pages 用ファイル出力</h4>
+          <button type="button" id="btnExportBakedMusicHtml" class="btn btn-primary">🌐 設定済みの musicnotebook.html を保存</button>
+        </div>
+        <div style="border-top: 1px solid var(--border-light); padding-top: 14px;">
+          <h4 style="font-size:13.5px; margin-bottom:8px;">JSONバックアップ・復元</h4>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button type="button" id="btnExportJson" class="btn btn-primary">JSONファイルとして書き出し（保存）</button>
+            <button type="button" id="btnCopyMusicJson" class="btn">📋 JSON文字列をコピー</button>
+            <label class="btn" style="cursor:pointer;">
+              <span>JSONファイルを読み込み（復元）</span>
+              <input type="file" id="inputImportJson" accept=".json,application/json" style="display:none;">
+            </label>
+            <button type="button" id="btnToggleMusicPasteJson" class="btn">📝 JSON貼り付け復元</button>
+          </div>
+          <div id="musicPasteJsonArea" style="display:none; margin-top:10px;">
+            <textarea id="musicPasteJsonInput" class="form-control" rows="4" placeholder="コピーしたJSON文字列を貼り付け..." style="width:100%; font-family:ui-monospace, monospace; font-size:12px;"></textarea>
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:6px;">
+              <button type="button" id="btnCancelMusicPasteJson" class="btn btn-sm">キャンセル</button>
+              <button type="button" id="btnApplyMusicPasteJson" class="btn btn-primary btn-sm">復元する</button>
+            </div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-light); padding-top: 14px; margin-top: 6px;">
+          <h4 style="font-size:13.5px; margin-bottom:8px; color:var(--danger);">初期データへのリセット</h4>
+          <button type="button" id="btnRequestReset" class="btn btn-danger">初期データにリセットする</button>
+          <div id="resetConfirmArea" style="display:none; margin-top:10px; padding:10px; background:var(--danger-soft); border-radius:var(--radius-sm);">
+            <p style="font-size:12.5px; font-weight:700; color:var(--danger); margin-bottom:8px;">本当に初期データへ戻しますか？（書き込んだメモは初期化されます）</p>
+            <div style="display:flex; gap:8px;">
+              <button type="button" id="btnConfirmReset" class="btn btn-danger btn-sm">はい、初期化する</button>
+              <button type="button" id="btnCancelReset" class="btn btn-sm">キャンセル</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCloseDataFooter" class="btn">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal: Image Lightbox -->
+  <div id="musicLightboxModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="画像プレビュー">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:10px; max-width:92vw;">
+      <img id="musicLightboxImg" src="" alt="拡大画像" style="max-height:82vh; max-width:100%; border-radius:10px; border:1px solid var(--border-color); background:#fff; object-fit:contain;">
+      <button type="button" id="btnCloseMusicLightbox" class="btn btn-primary">✕ 閉じる</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      const STORAGE_KEY = "elementary_music_exam_study_v1";
+      const THEME_KEY = "elementary_music_exam_theme_v1";
+
+      /* __MUSIC_DEFAULTS_START__ */
+      const INITIAL_COMMON_SONGS = [
+        // Grade 1
+        {
+          id: "c01", grade: "1", title: "うみ", reading: "うみ",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "林 柳波", composer: "井上 武士",
+          subInfo: "3/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「うみはひろいな おおきいな」\n・1学年で唯一の3拍子（3/4拍子）の共通教材。\n・林柳波作詞の共通教材3曲（1年『うみ』・2年『かくれんぼ』・5年『スキーの歌』）の1つ。\n・学習指導要領では作詞・作曲者名が表記される。",
+          status: "unstarted"
+        },
+        {
+          id: "c02", grade: "1", title: "かたつむり", reading: "かたつむり",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "2/4拍子・ヘ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「でんでんむしむし かたつむり」\n・付点のリズムの繰り返しが特徴的な2拍子の曲。『尋常小学唱歌（第一学年用）』初出。\n・学習指導要領では個人名がなく「文部省唱歌」と表記。",
+          status: "unstarted"
+        },
+        {
+          id: "c03", grade: "1", title: "日のまる", reading: "ひのまる",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌（高野辰之）", composer: "文部省唱歌（岡野貞一）",
+          subInfo: "4/4拍子・ハ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「しろいじに あかいまる」\n・穏やかな4拍子で、旋律の上行・下行が分かりやすい構成。\n・原著作者は高野辰之・岡野貞一だが、学習指導要領上は「文部省唱歌」単独表記なので注意。",
+          status: "unstarted"
+        },
+        {
+          id: "c04", grade: "1", title: "ひらいたひらいた", reading: "ひらいたひらいた",
+          category: "わらべうた", guideNotation: "わらべうた",
+          lyricist: "わらべうた", composer: "わらべうた",
+          subInfo: "2/4拍子・日本音階（陽音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「ひらいた ひらいた なんの花がひらいた」\n・共通教材全24曲の中で唯一の「わらべうた」（超頻出！）。\n・レ・ソ・ラ・ド・レの4音からなる日本音階（陽音階）。輪になって花の開閉を体現する遊び歌。",
+          status: "unstarted"
+        },
+
+        // Grade 2
+        {
+          id: "c05", grade: "2", title: "かくれんぼ", reading: "かくれんぼ",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "林 柳波", composer: "下総 皖一",
+          subInfo: "2/4拍子・ハ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「かくれんぼするもの よっといで」\n・「もういいかい」「まあだだよ」の呼びかけと応答（問いと答え）を味わう。\n・作曲の下総皖一は音楽理論・対位法の大家。",
+          status: "unstarted"
+        },
+        {
+          id: "c06", grade: "2", title: "春が来た", reading: "はるがきた",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "高野 辰之", composer: "岡野 貞一",
+          subInfo: "4/4拍子・ヘ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「春が来た 春が来た どこに来た」\n・高野辰之×岡野貞一コンビの1曲。1・2小節目と3・4小節目が同じリズムで音の高さが変わる（反復と変化）。\n・「山に来た さとに来た 野にも来た」のクライマックス表現がポイント。",
+          status: "unstarted"
+        },
+        {
+          id: "c07", grade: "2", title: "虫のこえ", reading: "むしのこえ",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "2/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「あれ松虫が 鳴いている」\n・登場する5匹の虫の順番：①松虫（チンチロリン）→②鈴虫（リンリンリン）→③こおろぎ※旧歌詞キリギリス（コロコロ…）→④くつわ虫（ガチャガチャ）→⑤馬追（スイッチョン）。教採の穴埋め頻出！",
+          status: "unstarted"
+        },
+        {
+          id: "c08", grade: "2", title: "夕やけこやけ", reading: "ゆうやけこやけ",
+          category: "創作曲（作詞・作曲明記）", guideNotation: "作詞・作曲明記（非・文部省唱歌）",
+          lyricist: "中村 雨紅", composer: "草川 信",
+          subInfo: "2/4拍子・ヘ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「夕やけこやけで 日がくれて」\n・文部省唱歌ではなく、大正期の童謡・創作曲（第4学年『とんび』と並ぶ非・文部省唱歌の代表）。\n・2分音符の伸びやかなフレーズ終わりが特徴。",
+          status: "unstarted"
+        },
+
+        // Grade 3
+        {
+          id: "c09", grade: "3", title: "うさぎ", reading: "うさぎ",
+          category: "日本古謡", guideNotation: "日本古謡",
+          lyricist: "日本古謡", composer: "日本古謡",
+          subInfo: "2/4拍子・都節音階（陰音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「うさぎ うさぎ なに見てはねる」\n・第4学年『さくらさくら』と並ぶ「日本古謡」。\n・ミ・ファ・ラ・シ・ド・ミの都節音階（陰音階）による独特の響きと拍の流れを学習する。",
+          status: "unstarted"
+        },
+        {
+          id: "c10", grade: "3", title: "茶つみ", reading: "ちゃつみ",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "2/4拍子・ヘ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「夏も近づく 八十八夜」\n・八十八夜（立春から数えて88日目・5月2日頃）の茶摘み風景。「あかねだすきに 菅（すげ）の笠」。\n・手遊び歌（せっせっせ）のリズム感を生かして歌う。",
+          status: "unstarted"
+        },
+        {
+          id: "c11", grade: "3", title: "春の小川", reading: "はるのおがわ",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "高野 辰之", composer: "岡野 貞一",
+          subInfo: "4/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「春の小川は さらさらいくよ」\n・高野辰之×岡野貞一コンビ。原詩の「さらさら流る」が口語調「さらさらいくよ」に改訂された歴史がある。\n・中間部の3連符が小川のなめらかな流れを表現している。",
+          status: "unstarted"
+        },
+        {
+          id: "c12", grade: "3", title: "ふじ山", reading: "ふじさん",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌（巌谷小波）", composer: "文部省唱歌",
+          subInfo: "4/4拍子・ハ長調（ヨナ抜き長音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「あたまを雲の 上に出し」\n・4拍子のゆったりとした堂々たる曲想。原詞は巌谷小波だが、学習指導要領上は「文部省唱歌」単独表記。\n・中学年からのリコーダー導入・階名唱とも関連付けやすいハ長調。",
+          status: "unstarted"
+        },
+
+        // Grade 4
+        {
+          id: "c13", grade: "4", title: "さくらさくら", reading: "さくらさくら",
+          category: "日本古謡", guideNotation: "日本古謡",
+          lyricist: "日本古謡", composer: "日本古謡",
+          subInfo: "4/4拍子・都節音階（陰音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「さくら さくら やよいの空は」\n・元は幕末の箏（こと）の手事（入門練習曲）。明治期に歌詞が付けられた日本古謡。\n・ラ・シ・ド・ミ・ファの都節音階（陰音階）。旋律の反復と変化を捉えて歌う。",
+          status: "unstarted"
+        },
+        {
+          id: "c14", grade: "4", title: "とんび", reading: "とんび",
+          category: "創作曲（作詞・作曲明記）", guideNotation: "作詞・作曲明記（非・文部省唱歌）",
+          lyricist: "葛原 しげる", composer: "梁田 貞",
+          subInfo: "2/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「とべとべとんび 空たかく」\n・「ピンヨロー」の部分のクレッシェンド・デクレッシェンドや、大空を旋回するような伸びやかなフレーズ表現が重要。\n・作曲の梁田貞は『どんぐりころころ』『城ヶ島の雨』の作曲者としても有名。",
+          status: "unstarted"
+        },
+        {
+          id: "c15", grade: "4", title: "まきばの朝", reading: "まきばのあさ",
+          category: "文部省唱歌", guideNotation: "文部省唱歌（詞）／船橋栄吉（曲）",
+          lyricist: "文部省唱歌", composer: "船橋 栄吉",
+          subInfo: "4/4拍子・ハ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「ただ一面に 立ちこめた」\n・学習指導要領で唯一「作詞：文部省唱歌、作曲：個人名（船橋栄吉）」という組み合わせ表記になっている曲（超頻出ひっかけポイント！）。\n・霧が晴れていく牧場の爽やかな朝の情景。",
+          status: "unstarted"
+        },
+        {
+          id: "c16", grade: "4", title: "もみじ", reading: "もみじ",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "高野 辰之", composer: "岡野 貞一",
+          subInfo: "2/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「秋の夕日に 照る山もみじ」\n・高野辰之×岡野貞一コンビ。第4学年における「二部合唱」の代表的教材。\n・前半は主旋律と副次的旋律の追いかけ（カノン風）、後半は3度・6度の和声的な響きを味わう。",
+          status: "unstarted"
+        },
+
+        // Grade 5
+        {
+          id: "c17", grade: "5", title: "こいのぼり", reading: "こいのぼり",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "3/4拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「いらかの波と 雲の波」\n・3拍子（3/4拍子）の大きくうねるような旋律と、付点リズムの力強さが特徴の文語調唱歌。\n・「屋根より高い こいのぼり」（近藤宮子作詞の童謡）とは別曲なので混同注意。",
+          status: "unstarted"
+        },
+        {
+          id: "c18", grade: "5", title: "子もり歌", reading: "こもりうた",
+          category: "古歌", guideNotation: "古歌",
+          lyricist: "古歌", composer: "古歌",
+          subInfo: "4/4拍子・都節音階（陰音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「ねんねんころりよ おころりよ」\n・共通教材全24曲の中で唯一の「古歌」単独表記（教採最頻出のひっかけ問題！『うさぎ』『さくらさくら』は日本古謡）。\n・都節音階（陰音階）の優しく穏やかな響き。",
+          status: "unstarted"
+        },
+        {
+          id: "c19", grade: "5", title: "スキーの歌", reading: "すきーのうた",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "林 柳波", composer: "橋本 国彦",
+          subInfo: "6/8拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「山はしろがね 朝日を浴びて」\n・第6学年『われは海の子』と並び、共通教材で2曲だけの「8分の6拍子（6/8拍子）」。\n・大きな2拍子系の拍の流れに乗って、スキーで滑走する躍動感を表現する。",
+          status: "unstarted"
+        },
+        {
+          id: "c20", grade: "5", title: "冬げしき", reading: "ふゆげしき",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "3/4拍子・ホ長調（教科書によりヘ長調）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「さぎり消ゆる 湊江（みなとえ）の」\n・3拍子のゆるやかな流れ。1番＝朝（水辺・舟）、2番＝昼（麦畑・小春日和）、3番＝夕（里・帰り道）と時間帯と場所が移り変わる文語調の名作。",
+          status: "unstarted"
+        },
+
+        // Grade 6
+        {
+          id: "c21", grade: "6", title: "越天楽今様", reading: "えてんらくいまよう",
+          category: "古歌・日本古謡", guideNotation: "古歌（詞）／日本古謡（曲）",
+          lyricist: "古歌（慈鎮和尚）", composer: "日本古謡（雅楽「越天楽」旋律）",
+          subInfo: "4/4拍子・律音階（雅楽音階）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「春のやよいの あけぼのに」\n・平安時代の雅楽『越天楽』（第6学年鑑賞教材）の旋律に、七五調4句の「今様」の歌詞（四季の風物）をつけたもの。民謡『黒田節』とも同旋律。\n・学習指導要領上は「古歌・日本古謡」と併記される。",
+          status: "unstarted"
+        },
+        {
+          id: "c22", grade: "6", title: "おぼろ月夜", reading: "おぼろづきよ",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "高野 辰之", composer: "岡野 貞一",
+          subInfo: "3/4拍子・ニ長調（またはハ長調）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「菜の花畠に 入り日薄れ」\n・高野辰之×岡野貞一コンビ。春の夕暮れの視覚（菜の花・夕月）、嗅覚（花の香り）、聴覚（蛙の声・鐘の音）を描いた文語調唱歌。二部合唱でも歌われる。",
+          status: "unstarted"
+        },
+        {
+          id: "c23", grade: "6", title: "ふるさと", reading: "ふるさと",
+          category: "文部省唱歌", guideNotation: "個人名表記（初出：文部省唱歌）",
+          lyricist: "高野 辰之", composer: "岡野 貞一",
+          subInfo: "3/4拍子・ヘ長調（またはト長調）",
+          youtubeUrl: "",
+          notes: "【歌い出し】「うさぎ追いし かの山」\n・高野辰之×岡野貞一コンビの代表作。3拍子（3/4拍子）。\n・小学校音楽の集大成として、二部合唱・三部合唱で声部の重なりや和声の響きを味わう。",
+          status: "unstarted"
+        },
+        {
+          id: "c24", grade: "6", title: "われは海の子", reading: "われはうみのこ",
+          category: "文部省唱歌", guideNotation: "指導要領：文部省唱歌のみ",
+          lyricist: "文部省唱歌", composer: "文部省唱歌",
+          subInfo: "6/8拍子・ヘ長調",
+          youtubeUrl: "",
+          notes: "【歌い出し】「われは海の子 白浪の」\n・5年『スキーの歌』と同じく8分の6拍子（6/8拍子）。付点リズムが波の力強さと海洋の広がりを表現する文語調唱歌。",
+          status: "unstarted"
+        }
+      ];
+
+      // Initial Integrated Dataset for Appreciation (Tab 2) & Composers by Era (Tab 3)
+      const INITIAL_APPRECIATION_SONGS = [
+        // Baroque
+        {
+          id: "a01", grade: "5", era: "バロック音楽",
+          title: "協奏曲集『四季』より「春」第1楽章（「冬」「秋」）",
+          composer: "ヴィヴァルディ", country: "イタリア",
+          subInfo: "ヴァイオリン協奏曲・リトルネッロ形式・標題音楽",
+          youtubeUrl: "",
+          notes: "・全員で演奏するトゥッティ（リトルネッロ主題）と、独奏ヴァイオリンが活躍するソロが交互に現れる「リトルネッロ形式」。\n・「小鳥のさえずり」「小川のせせらぎ」「雷と稲妻」を弦楽器の奏法で描写した標題音楽。",
+          status: "unstarted"
+        },
+        {
+          id: "a02", grade: "3", era: "バロック音楽",
+          title: "メヌエット ト長調（アンナ・マグダレーナのためのクラヴィーア小曲集）",
+          composer: "J.S.バッハ（ペッツォルト）", country: "ドイツ",
+          subInfo: "3/4拍子・チェンバロ／オルガン・舞曲",
+          youtubeUrl: "",
+          notes: "・J.S.バッハは「音楽の父」と呼ばれるバロック音楽の集大成者（代表作：『小フーガ ト短調』『トッカータとフーガ ニ短調』『G線上のアリア』『ブランデンブルク協奏曲』）。\n・優雅な3拍子の宮廷舞曲メヌエット。チェンバロとピアノの音色の違いも鑑賞ポイント。",
+          status: "unstarted"
+        },
+        {
+          id: "a03", grade: "4", era: "バロック音楽",
+          title: "組曲『水上の音楽』より「アラ・ホーンパイプ」",
+          composer: "ヘンデル", country: "ドイツ（のちイギリス帰化）",
+          subInfo: "管弦楽・ホルンとトランペット・三部形式（A-B-A）",
+          youtubeUrl: "",
+          notes: "・ヘンデルは「音楽の母」と呼ばれ、オラトリオ『メサイア』（ハレルヤ・コーラス）や歌劇『セルセ』（ラルゴ／オンブラ・マイ・フ）が有名。\n・英国王ジョージ1世のテムズ川舟遊びのために作曲。金管楽器（ホルン・トランペット）と弦楽器の掛け合いが特徴。",
+          status: "unstarted"
+        },
+
+        // Classical
+        {
+          id: "a04", grade: "2", era: "古典派の音楽",
+          title: "交響曲第94番『驚愕（びっくりシンフォニー）』第2楽章",
+          composer: "ハイドン", country: "オーストリア",
+          subInfo: "交響曲・変奏曲形式・強弱の対比",
+          youtubeUrl: "",
+          notes: "・ハイドンは「交響曲の父」「弦楽四重奏曲の父」と呼ばれる古典派の巨匠。\n・穏やかな弱音（p）の主題のあとに突然フォルティッシモ（ff）の和音とティンパニが鳴り響く強弱の工夫と変奏を聴き取る。",
+          status: "unstarted"
+        },
+        {
+          id: "a05", grade: "6", era: "古典派の音楽",
+          title: "弦楽四重奏曲第77番『皇帝』第2楽章",
+          composer: "ハイドン", country: "オーストリア",
+          subInfo: "弦楽四重奏（第1Vn・第2Vn・Va・Vc）・主題と変奏",
+          youtubeUrl: "",
+          notes: "・弦楽四重奏の編成（第1ヴァイオリン、第2ヴァイオリン、ヴィオラ、チェロ）は教採超頻出！\n・主題のあと、第1変奏（第2Vn主旋律）→第2変奏（チェロ主旋律）→第3変奏（ヴィオラ主旋律）→第4変奏（第1Vn主旋律）と主旋律を受け渡す。",
+          status: "unstarted"
+        },
+        {
+          id: "a06", grade: "5", era: "古典派の音楽",
+          title: "セレナーデ『アイネ・クライネ・ナハトムジーク』第1楽章",
+          composer: "モーツァルト", country: "オーストリア",
+          subInfo: "弦楽合奏・ソナタ形式・ト長調",
+          youtubeUrl: "",
+          notes: "・「小さな夜の音楽」の意味。第1ヴァイオリン、第2ヴァイオリン、ヴィオラ、チェロ、コントラバスによる弦楽合奏。\n・古典派の代表的な「ソナタ形式」（提示部・展開部・再現部）の明快な構成。",
+          status: "unstarted"
+        },
+        {
+          id: "a07", grade: "4", era: "古典派の音楽",
+          title: "歌劇『魔笛』より「パパゲーノとパパゲーナの二重唱」「夜の女王のアリア」",
+          composer: "モーツァルト", country: "オーストリア",
+          subInfo: "オペラ（歌唱と管弦楽）・声の音色と掛け合い",
+          youtubeUrl: "",
+          notes: "・鳥刺しパパゲーノ（バリトン）とパパゲーナ（ソプラノ）が「パ・パ・パ…」と声を重ねる喜びの二重唱。\n・『トルコ行進曲（ピアノ・ソナタ第11番第3楽章）』や『きらきら星変奏曲』（低学年鑑賞）もモーツァルトの代表曲。",
+          status: "unstarted"
+        },
+        {
+          id: "a08", grade: "5", era: "古典派の音楽",
+          title: "交響曲第5番『運命』第1楽章",
+          composer: "ベートーヴェン", country: "ドイツ",
+          subInfo: "交響曲・ハ短調・ソナタ形式・動機労作",
+          youtubeUrl: "",
+          notes: "・ベートーヴェンは古典派を頂点に導きロマン派への扉を開いた「楽聖」（代表作：交響曲第5番『運命』、第6番『田園』、第9番『合唱付き』、『エリーゼのために』）。\n・冒頭の「ダダダダーン」という4音の動機（モチーフ）が全曲を通じて反復・展開される。",
+          status: "unstarted"
+        },
+        {
+          id: "a09", grade: "1", era: "古典派の音楽",
+          title: "トルコ行進曲（劇音楽『アテネの廃墟』より）",
+          composer: "ベートーヴェン", country: "ドイツ",
+          subInfo: "2/4拍子・行進曲・強弱の変化（遠くから近づき遠ざかる）",
+          youtubeUrl: "",
+          notes: "・第1学年の鑑賞定番曲。拍の流れに乗って行進しやすい2拍子。\n・弱音（pp）からクレッシェンドして最強音（ff）になり、再び弱まって消えていくことで、音楽隊が近づいて通り過ぎていく様子を表す。",
+          status: "unstarted"
+        },
+
+        // Romantic
+        {
+          id: "a10", grade: "6", era: "ロマン派の音楽",
+          title: "ピアノ五重奏曲『ます』第4楽章（および歌曲『魔王』『ます』）",
+          composer: "シューベルト", country: "オーストリア",
+          subInfo: "ピアノ五重奏（ピアノ・Vn・Va・Vc・Cb）・変奏曲形式",
+          youtubeUrl: "",
+          notes: "・シューベルトは「歌曲の王」（600曲以上のドイツ歌曲を作曲）。\n・通常のピアノ五重奏（ピアノ＋弦楽四重奏）と異なり、第2ヴァイオリンの代わりに「コントラバス」が入る特殊編成（ピアノ・Vn・Va・Vc・Cb）は教採頻出！",
+          status: "unstarted"
+        },
+        {
+          id: "a11", grade: "6", era: "ロマン派の音楽",
+          title: "ワルツ第6番『小犬のワルツ』（および『英雄ポロネーズ』『ノクターン』）",
+          composer: "ショパン", country: "ポーランド",
+          subInfo: "ピアノ独奏・3/4拍子・三部形式（A-B-A）",
+          youtubeUrl: "",
+          notes: "・ショパンは生涯のほとんどをピアノ曲に捧げた「ピアノの詩人」。祖国ポーランドの舞曲『マズルカ』『ポロネーズ』も多数作曲。\n・小犬が自分の尻尾を追いかけてくるくる回る様子を急速な3拍子で表現。",
+          status: "unstarted"
+        },
+        {
+          id: "a12", grade: "4", era: "ロマン派の音楽",
+          title: "『子供の情景』より「トロイメライ（夢）」（および『楽しき農夫』）",
+          composer: "シューマン", country: "ドイツ",
+          subInfo: "ピアノ独奏・4/4拍子・ヘ長調・ロマン派性格的小品",
+          youtubeUrl: "",
+          notes: "・なめらかに上行する美しい主旋律と、豊かな和声の響きが特徴のピアノ小品。\n・低学年鑑賞では『ユーゲント・アルバム（子供のためのアルバム）』より「楽しき農夫」も扱われる。",
+          status: "unstarted"
+        },
+        {
+          id: "a13", grade: "6", era: "ロマン派の音楽",
+          title: "組曲『アルルの女』第2組曲より「ファランドール」「メヌエット」",
+          composer: "ビゼー", country: "フランス",
+          subInfo: "管弦楽・2つの主題の対比と重なり（カノン・同時演奏）",
+          youtubeUrl: "",
+          notes: "・「ファランドール」は、堂々とした『3人の王の行進』（短調・行進曲風）と、軽快な『馬のダンス』（長調・プロヴァンス太鼓とピッコロ）の2つの旋律が交互に現れ、最後に2つが同時に重なり合う。\n・「メヌエット」はフルート独奏とハープの伴奏が美しい。",
+          status: "unstarted"
+        },
+        {
+          id: "a14", grade: "3", era: "ロマン派の音楽",
+          title: "歌劇『カルメン』前奏曲",
+          composer: "ビゼー", country: "フランス",
+          subInfo: "管弦楽・ロンド形式（A-B-A-C-A）・シンバルの響き",
+          youtubeUrl: "",
+          notes: "・シンバルが華やかに鳴り響く快活な主題Aと、闘牛士の歌の力強い主題Cなどが交互に現れるロンド形式（A-B-A-C-A-終結部）。",
+          status: "unstarted"
+        },
+        {
+          id: "a15", grade: "1", era: "ロマン派の音楽",
+          title: "組曲『動物の謝肉祭』より「白鳥」「象」「化石」「ライオンの行進」",
+          composer: "サン＝サーンス", country: "フランス",
+          subInfo: "室内管弦楽・楽器の音色と動物の特徴の結びつき",
+          youtubeUrl: "",
+          notes: "・各動物と主役楽器の組み合わせが超頻出！\n①「白鳥」＝チェロ（優雅な旋律）＋ピアノ2台（水面）\n②「象」＝コントラバス（低音でワルツ）\n③「化石」＝シロフォン（木琴の乾いた音）\n④「カッコウ」＝クラリネット",
+          status: "unstarted"
+        },
+        {
+          id: "a16", grade: "2", era: "ロマン派の音楽",
+          title: "バレエ組曲『くるみ割り人形』より「行進曲」「あし笛の踊り」「トレパック」",
+          composer: "チャイコフスキー", country: "ロシア",
+          subInfo: "管弦楽・バレエ音楽・楽器の音色の対比",
+          youtubeUrl: "",
+          notes: "・「行進曲」＝トランペット・ホルンと弦楽器の掛け合い。\n・「あし笛の踊り」＝3本のフルートの優雅な重奏と、中間部のトランペットの対比。\n・「こんぺい糖の踊り」＝チェレスタの神秘的な音色。「花のワルツ」＝ハープのカデンツァとホルンの主題。",
+          status: "unstarted"
+        },
+        {
+          id: "a17", grade: "3", era: "ロマン派の音楽",
+          title: "ポルカ『雷鳴と稲妻』（およびワルツ『美しく青きドナウ』）",
+          composer: "ヨハン・シュトラウス2世", country: "オーストリア",
+          subInfo: "管弦楽・2/4拍子（ポルカ）・大太鼓とシンバルの描写",
+          youtubeUrl: "",
+          notes: "・「ワルツ王」と呼ばれる作曲家。2拍子の軽快な舞曲ポルカの中で、ティンパニ・大太鼓のロールとシンバルによって「雷鳴と稲妻」を表現している。",
+          status: "unstarted"
+        },
+        {
+          id: "a18", grade: "5", era: "ロマン派の音楽",
+          title: "ハンガリー舞曲第5番",
+          composer: "ブラームス", country: "ドイツ",
+          subInfo: "管弦楽（原曲：ピアノ四手連弾）・速度と強弱の急激な変化",
+          youtubeUrl: "",
+          notes: "・バッハ（B）、ベートーヴェン（B）と並び「ドイツ三大B」と称される作曲家。\n・ロマ（ジプシー）の音楽に霊感を受け、テンポ（速度）が急に速くなったり遅くなったりする緩急の対比が最大の聴きどころ。",
+          status: "unstarted"
+        },
+        {
+          id: "a19", grade: "5", era: "ロマン派の音楽",
+          title: "歌劇『ローエングリン』より「第3幕への前奏曲」",
+          composer: "ワーグナー", country: "ドイツ",
+          subInfo: "管弦楽・金管楽器のファンファーレ・三部形式（A-B-A）",
+          youtubeUrl: "",
+          notes: "・婚礼の祝宴に先立つ華やかな前奏曲。ホルン・トロンボーン・チューバなどの金管楽器群が力強い主旋律を奏で、中間部（B）では木管楽器が優美な旋律を歌う。",
+          status: "unstarted"
+        },
+        {
+          id: "a20", grade: "1", era: "ロマン派の音楽",
+          title: "クシコス・ポスト（郵便馬車）",
+          composer: "ネッケ", country: "ドイツ",
+          subInfo: "2/4拍子・イ短調→イ長調・疾走感のあるリズム",
+          youtubeUrl: "",
+          notes: "・ハンガリーの郵便馬車が勢いよく走る様子を表現した曲。短調の緊張感ある前半から、後半で明るい長調に転調する変化を味わう。",
+          status: "unstarted"
+        },
+
+        // Nationalist (国民楽派)
+        {
+          id: "a21", grade: "6", era: "国民楽派の音楽",
+          title: "連作交響詩『わが祖国』より「ヴルタヴァ（モルダウ）」",
+          composer: "スメタナ", country: "チェコ",
+          subInfo: "交響詩（管弦楽）・6/8拍子・ホ短調→ホ長調",
+          youtubeUrl: "",
+          notes: "・チェコ国民楽派の祖。2つの源流（フルートとクラリネット）が合流してモルダウ川となり、森の狩り（ホルン）、農民の結婚式（ポルカ）、月の光と水の精の踊りを経てプラハへ流れる標題音楽。",
+          status: "unstarted"
+        },
+        {
+          id: "a22", grade: "5", era: "国民楽派の音楽",
+          title: "交響曲第9番『新世界より』第2楽章（家路）・第4楽章（および『ユーモレスク』）",
+          composer: "ドヴォルザーク", country: "チェコ",
+          subInfo: "交響曲・イングリッシュホルン（コールアングレ）の独奏",
+          youtubeUrl: "",
+          notes: "・アメリカ滞在中に作曲。第2楽章「ラルゴ（家路）」の哀愁漂う主旋律を演奏する木管楽器「イングリッシュホルン（コールアングレ）」は教採超頻出！\n・第3学年鑑賞ではヴァイオリンやピアノで親しまれる『ユーモレスク第7番』も扱われる。",
+          status: "unstarted"
+        },
+        {
+          id: "a23", grade: "4", era: "国民楽派の音楽",
+          title: "劇音楽『ペール・ギュント』第1組曲より「山の魔王の宮殿にて」「朝」",
+          composer: "グリーグ", country: "ノルウェー",
+          subInfo: "管弦楽・反復・だんだん強く＆だんだん速く",
+          youtubeUrl: "",
+          notes: "・「山の魔王の宮殿にて」は、チェロ・コントラバスのピッツィカートとファゴットの不気味な主題が、同じ旋律を繰り返しながら少しずつ音が高くなり、速度（テンポ）が速く、音量が強くなっていく構成。\n・「朝」はフルートとオーボエが夜明けの爽やかな旋律を交互に奏でる。",
+          status: "unstarted"
+        },
+        {
+          id: "a24", grade: "5", era: "国民楽派の音楽",
+          title: "組曲『展覧会の絵』（ラヴェル編曲）より「プロムナード」「卵の殻をつけたひなのバレエ」",
+          composer: "ムソルグスキー", country: "ロシア",
+          subInfo: "管弦楽（原曲：ピアノ組曲）・変拍子（5拍子と6拍子）",
+          youtubeUrl: "",
+          notes: "・ロシア国民楽派「ロシア5人組」の1人。原曲はピアノ曲で、フランスのラヴェルが色彩豊かな管弦楽曲に編曲した。\n・「プロムナード（散歩）」は5拍子と6拍子が組み合わさった変拍子で、トランペット独奏から全合奏へと広がる。",
+          status: "unstarted"
+        },
+        {
+          id: "a25", grade: "6", era: "国民楽派の音楽",
+          title: "弦楽四重奏曲第2番 第3楽章「ノクターン（夜想曲）」",
+          composer: "ボロディン", country: "ロシア",
+          subInfo: "弦楽四重奏・チェロとヴァイオリンの旋律の受け渡し",
+          youtubeUrl: "",
+          notes: "・ムソルグスキーと同じく「ロシア5人組」の1人（化学者としても有名）。\n・冒頭でチェロが高音域で甘美な主旋律を歌い出し、それを第1ヴァイオリンが引き継ぎ、後半では2つの楽器が追いかけっこ（カノン）のように重なる。",
+          status: "unstarted"
+        },
+        {
+          id: "a26", grade: "5", era: "国民楽派の音楽",
+          title: "行進曲『威風堂々』第1番",
+          composer: "エルガー", country: "イギリス",
+          subInfo: "管弦楽・行進曲・主部と中間部の曲想の対比",
+          youtubeUrl: "",
+          notes: "・歯切れよく活発な冒頭部分と、中間部（トリオ）のゆったりと威厳に満ちたなめらかな旋律（「希望と栄光の国」）の対比を聴き取る。",
+          status: "unstarted"
+        },
+
+        // Modern & Contemporary (近代・現代)
+        {
+          id: "a27", grade: "other", era: "近代・現代の音楽",
+          title: "『ベルガマスク組曲』より「月の光」／『子供の領分』より「ゴリウォーグのケークウォーク」",
+          composer: "ドビュッシー", country: "フランス",
+          subInfo: "印象主義音楽・ピアノ曲・全音音階",
+          youtubeUrl: "",
+          notes: "・従来の長調・短調の枠を超え、全音音階や教会旋法、不協和音の色彩的な響きを用いた「印象主義音楽」の創始者。\n・管弦楽曲『牧神の午後への前奏曲』『海』も音楽史で頻出。",
+          status: "unstarted"
+        },
+        {
+          id: "a28", grade: "6", era: "近代・現代の音楽",
+          title: "ボレロ",
+          composer: "ラヴェル", country: "フランス",
+          subInfo: "管弦楽・3/4拍子・小太鼓のリズム反復と楽器リレー",
+          youtubeUrl: "",
+          notes: "・「オーケストレーションの魔術師」と呼ばれたラヴェルの代表作。\n・スネアドラム（小太鼓）が最初から最後まで同じ2小節のリズムを刻み続け、2種類の旋律（A・B）をフルート→クラリネット→ファゴット…と様々な楽器がリレーしながら約15分間クレッシェンドし続ける。",
+          status: "unstarted"
+        },
+        {
+          id: "a29", grade: "4", era: "近代・現代の音楽",
+          title: "組曲『惑星』より「木星（ジュピター）」",
+          composer: "ホルスト", country: "イギリス",
+          subInfo: "管弦楽・快活な主題と中間部の悠大な主題の対比",
+          youtubeUrl: "",
+          notes: "・金管楽器と弦楽器が躍動する快活な第1主題と、中間部（アンダンテ・マエストーソ）の弦楽器とホルンがゆったりと歌い上げる荘厳な旋律の対比がポイント。",
+          status: "unstarted"
+        },
+        {
+          id: "a30", grade: "3", era: "近代・現代の音楽",
+          title: "交響的物語『ピーターと狼』",
+          composer: "プロコフィエフ", country: "ロシア（旧ソ連・ウクライナ生まれ）",
+          subInfo: "ナレーション付き管弦楽・登場人物と楽器の音色の対応",
+          youtubeUrl: "",
+          notes: "・登場人物と担当楽器の組み合わせが教採超頻出！\n①ピーター＝弦楽四重奏 ②小鳥＝フルート ③アヒル＝オーボエ ④猫＝クラリネット ⑤おじいさん＝ファゴット ⑥狼＝3本のホルン ⑦狩人の銃声＝ティンパニと大太鼓",
+          status: "unstarted"
+        },
+        {
+          id: "a31", grade: "4", era: "近代・現代の音楽",
+          title: "バレエ組曲『ガイーヌ』より「剣の舞」",
+          composer: "ハチャトゥリアン", country: "アルメニア（旧ソ連）",
+          subInfo: "管弦楽・シロフォン（木琴）の激しいリズムと中間部の対比",
+          youtubeUrl: "",
+          notes: "・ティンパニとシロフォン（木琴）が刻む激しい4拍子の連打で始まり、中間部ではアルトサクソフォンとチェロがゆったりとした3拍子の民俗的な旋律を奏でる対比が特徴。",
+          status: "unstarted"
+        },
+        {
+          id: "a32", grade: "2", era: "近代・現代の音楽",
+          title: "シンコペーテッド・クロック／トランペット吹きの休日／タイプライター",
+          composer: "アンダーソン", country: "アメリカ",
+          subInfo: "管弦楽（ライト・クラシック）・ウッドブロックやトランペットの活躍",
+          youtubeUrl: "",
+          notes: "・『シンコペーテッド・クロック』（1・2年）＝ウッドブロックが規則正しい時計の「チクタク」音を刻み、途中でシンコペーション（リズムのずれ）を起こす。\n・『トランペット吹きの休日』（3年）＝3本のトランペットが軽快な連符で掛け合う。",
+          status: "unstarted"
+        },
+        {
+          id: "a33", grade: "4", era: "近代・現代の音楽",
+          title: "青少年のための管弦楽入門（パーセルの主題による変奏曲とフーガ）",
+          composer: "ブリテン", country: "イギリス",
+          subInfo: "管弦楽・オーケストラの4つの楽器群の紹介",
+          youtubeUrl: "",
+          notes: "・バロック期の作曲家パーセルの主題を、全体合奏→①木管楽器群→②金管楽器群→③弦楽器群→④打楽器群→全体合奏の順で演奏し、各楽器を高い音から低い音の順に紹介していく教育的名作。",
+          status: "unstarted"
+        },
+        {
+          id: "a34", grade: "6", era: "近代・現代の音楽",
+          title: "組歌『四季』より「花」（および『荒城の月』『箱根八里』）",
+          composer: "滝 廉太郎", country: "日本",
+          subInfo: "二部合唱とピアノ・2/4拍子・ト長調・日本初の西洋音楽様式による合唱曲集",
+          youtubeUrl: "",
+          notes: "・作詞は武島羽衣。「春のうららの 隅田川」。\n・1900年（明治33年）発表の組歌『四季』（第1曲「花」・第2曲「納涼」・第3曲「月」・第4曲「雪」）の第1曲。日本の近代音楽史における最重要人物。",
+          status: "unstarted"
+        },
+        {
+          id: "a35", grade: "5", era: "近代・現代の音楽",
+          title: "赤とんぼ／この道／待ちぼうけ",
+          composer: "山田 耕筰", country: "日本",
+          subInfo: "独唱とピアノ・日本語の抑揚（アクセント）を生かした芸術歌曲",
+          youtubeUrl: "",
+          notes: "・『赤とんぼ』（三木露風作詞）、『この道』『待ちぼうけ』『ペチカ』『からたちの花』（北原白秋作詞）。\n・日本語の言葉のイントネーションと旋律の高低を一致させた日本歌曲を確立し、日本で最初の交響曲や管弦楽団育成にも尽力した。",
+          status: "unstarted"
+        },
+
+        // Traditional Japanese Music (日本の伝統・郷土音楽)
+        {
+          id: "a36", grade: "6", era: "日本の伝統・郷土音楽",
+          title: "雅楽『越天楽』（平調越天楽）",
+          composer: "日本古曲（雅楽）", country: "日本",
+          subInfo: "管絃（三管・三鼓・二絃）・世界最古のオーケストラ",
+          youtubeUrl: "",
+          notes: "・雅楽の「管絃」で用いられる楽器の役割は教採超頻出！\n【三管（管楽器）】①笙（しょう：天から差し込む光／和音を奏でる） ②篳篥（ひちりき：地上の人の声／主旋律を力強く奏でる） ③龍笛（りゅうてき：天と地を舞う龍の声／主旋律を装飾する）\n【三鼓】鞨鼓（かっこ）・太鼓・鉦鼓（しょうこ） 【二絃】楽琵琶・楽箏",
+          status: "unstarted"
+        },
+        {
+          id: "a37", grade: "5", era: "日本の伝統・郷土音楽",
+          title: "六段の調（ろくだんのしらべ）",
+          composer: "八橋 検校（やつはし けんぎょう）", country: "日本",
+          subInfo: "箏曲（段物）・初段〜六段・序破急の速度変化",
+          youtubeUrl: "",
+          notes: "・江戸時代初期、近代箏曲の祖・八橋検校が作曲した器楽曲（段物）。\n・初段から六段まで6つの段から成り、最初はゆったりと始まり、段が進むにつれて少しずつ速度が速くなり、最後はゆっくりと収まる「序破急」の構成。",
+          status: "unstarted"
+        },
+        {
+          id: "a38", grade: "4", era: "日本の伝統・郷土音楽",
+          title: "春の海",
+          composer: "宮城 道雄", country: "日本",
+          subInfo: "箏（こと）と尺八の二重奏・三部形式（A-B-A）・新日本音楽",
+          youtubeUrl: "",
+          notes: "・昭和4年（1929年）発表。日本の伝統楽器である「箏」と「尺八」を用いながら、西洋音楽の三部形式（A-B-A）を取り入れた「新日本音楽」の代表作。\n・穏やかな瀬戸内海の波の音や、カモメの鳴き声、船を漕ぐ様子が表現されている。",
+          status: "unstarted"
+        }
+      ];
+
+      /* __MUSIC_DEFAULTS_END__ */
+
+      // Era Explanations for Tab 3 Banner
+      const ERA_SUMMARIES = {
+        "all": {
+          title: "西洋音楽史・時代区分と日本の音楽（全時代一覧）",
+          body: "バロック→古典派→ロマン派→国民楽派→近代・現代の流れと、各時代の代表的な作曲家・出身国・鑑賞教材を連動して確認できます。上の時代区分ボタンで絞り込むと、各時代の特徴が表示されます。"
+        },
+        "バロック音楽": {
+          title: "バロック音楽（1600年頃〜1750年頃）の特徴",
+          body: "「ゆがんだ真珠」が語源。チェンバロやオルガンなどで低音と和音を補う「通奏低音」や、複数の旋律を対等に組み合わせる「対位法（フーガ・カノン）」、合奏と独奏が交代する「リトルネッロ形式」が発展しました。代表：ヴィヴァルディ（伊）、J.S.バッハ（独）、ヘンデル（独→英）。"
+        },
+        "古典派の音楽": {
+          title: "古典派の音楽（1750年頃〜1820年頃）の特徴",
+          body: "主旋律を和音で支える「ホモフォニー（和声音楽）」が主流となり、均整のとれた「ソナタ形式（提示部・展開部・再現部）」が確立。ピアノの普及とともに、ソナタ・交響曲・弦楽四重奏曲・協奏曲が大きく発展しました。ウィーン古典派三大巨匠：ハイドン（墺）、モーツァルト（墺）、ベートーヴェン（独）。"
+        },
+        "ロマン派の音楽": {
+          title: "ロマン派の音楽（19世紀）の特徴",
+          body: "個人の自由な感情表現や詩・文学・自然の情景と結びついた「標題音楽」「性格的小品（キャラクター・ピース）」「芸術歌曲（リート）」が開花。オーケストラの規模も拡大し、色彩豊かな管弦楽法が発展しました。代表：シューベルト、ショパン、シューマン、ビゼー、サン＝サーンス、チャイコフスキー等。"
+        },
+        "国民楽派の音楽": {
+          title: "国民楽派の音楽（19世紀後半）の特徴",
+          body: "ロマン派の流れの中で、これまで音楽の中心だった独・墺・仏・伊以外の地域（チェコ、ノルウェー、ロシア、フィンランド等）の作曲家が、自国の民謡・民族舞踊のリズム・歴史や伝説を取り入れて愛国心や民族の誇りを表現しました。代表：スメタナ、ドヴォルザーク、グリーグ、ムソルグスキー、ボロディン等。"
+        },
+        "近代・現代の音楽": {
+          title: "近代・現代の音楽（19世紀末〜20世紀以降）の特徴",
+          body: "ドビュッシーやラヴェルによる「印象主義音楽」をはじめ、長調・短調の調性にとらわれない無調・十二音技法、変拍子やポリリズム、ジャズとの融合、電子音楽など多様な表現が誕生。日本でも滝廉太郎や山田耕筰らにより西洋音楽様式と日本語が融合した音楽が発展しました。"
+        },
+        "日本の伝統・郷土音楽": {
+          title: "日本の伝統音楽・郷土の音楽（鑑賞重要曲）",
+          body: "小学校鑑賞教材で必修となる日本の伝統音楽（雅楽『越天楽』、箏曲『六段の調』、尺八と箏『春の海』など）。楽器の名称・編成（三管・三鼓・二絃）や、音色・奏法の特徴、序破急の構成が教員採用試験で頻出です。"
+        }
+      };
+
+      // App State
+      let state = {
+        activeTab: "common", // "common" | "appreciation" | "composers"
+        searchQuery: "",
+        statusFilter: "all", // "all" | "review" | "unstarted" | "mastered"
+        gradeFilter: "all",  // "all" | "1".."6" | "other"
+        categoryFilter: "all",
+        eraFilter: "all",
+        maskMode: false,
+        maskTargets: {
+          title: true,
+          person: true,
+          category: true,
+          country: true
+        },
+        revealedCells: {}, // key: itemId_field -> boolean
+        commonSongs: [],
+        appreciationSongs: []
+      };
+
+      const IDB_NAME = "ElementaryMusicExamStudyDB";
+      const IDB_VERSION = 1;
+      const IDB_STORE = "app_state";
+      const IMG_MAX_DIM = 800;
+      const IMG_QUALITY = 0.8;
+      let dbPromise = null;
+      let currentFormImageData = "";
+
+      function openStudyDB() {
+        if (dbPromise) return dbPromise;
+        dbPromise = new Promise(function(resolve) {
+          if (!window.indexedDB) {
+            resolve(null);
+            return;
+          }
+          try {
+            const req = window.indexedDB.open(IDB_NAME, IDB_VERSION);
+            req.onupgradeneeded = function(e) {
+              const db = e.target.result;
+              if (!db.objectStoreNames.contains(IDB_STORE)) {
+                db.createObjectStore(IDB_STORE, { keyPath: "key" });
+              }
+            };
+            req.onsuccess = function(e) { resolve(e.target.result); };
+            req.onerror = function() { resolve(null); };
+          } catch (err) {
+            resolve(null);
+          }
+        });
+        return dbPromise;
+      }
+
+      function idbGet(key) {
+        return openStudyDB().then(function(db) {
+          if (!db) return null;
+          return new Promise(function(resolve) {
+            try {
+              const tx = db.transaction(IDB_STORE, "readonly");
+              const req = tx.objectStore(IDB_STORE).get(key);
+              req.onsuccess = function() {
+                resolve(req.result ? req.result.value : null);
+              };
+              req.onerror = function() { resolve(null); };
+            } catch (e) {
+              resolve(null);
+            }
+          });
+        });
+      }
+
+      function idbSet(key, val) {
+        return openStudyDB().then(function(db) {
+          if (!db) return;
+          return new Promise(function(resolve) {
+            try {
+              const tx = db.transaction(IDB_STORE, "readwrite");
+              tx.objectStore(IDB_STORE).put({ key: key, value: val });
+              tx.oncomplete = function() { resolve(); };
+              tx.onerror = function() { resolve(); };
+            } catch (e) {
+              resolve();
+            }
+          });
+        });
+      }
+
+      function compressImageFile(file) {
+        return new Promise(function(resolve, reject) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+              let w = img.width;
+              let h = img.height;
+              if (w > IMG_MAX_DIM || h > IMG_MAX_DIM) {
+                if (w >= h) {
+                  h = Math.round((h * IMG_MAX_DIM) / w);
+                  w = IMG_MAX_DIM;
+                } else {
+                  w = Math.round((w * IMG_MAX_DIM) / h);
+                  h = IMG_MAX_DIM;
+                }
+              }
+              const canvas = document.createElement("canvas");
+              canvas.width = w;
+              canvas.height = h;
+              const ctx = canvas.getContext("2d");
+              ctx.fillStyle = "#ffffff";
+              ctx.fillRect(0, 0, w, h);
+              ctx.drawImage(img, 0, 0, w, h);
+              resolve(canvas.toDataURL("image/jpeg", IMG_QUALITY));
+            };
+            img.onerror = function() { reject(new Error("Image load error")); };
+            img.src = e.target.result;
+          };
+          reader.onerror = function() { reject(new Error("File read error")); };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // Initial synchronous load + IndexedDB async hydration
+      function loadData() {
+        let loadedSync = false;
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed.commonSongs) && Array.isArray(parsed.appreciationSongs)) {
+              state.commonSongs = parsed.commonSongs;
+              state.appreciationSongs = parsed.appreciationSongs;
+              loadedSync = true;
+            }
+          }
+        } catch (err) {}
+        if (!loadedSync) {
+          state.commonSongs = JSON.parse(JSON.stringify(INITIAL_COMMON_SONGS));
+          state.appreciationSongs = JSON.parse(JSON.stringify(INITIAL_APPRECIATION_SONGS));
+        }
+
+        idbGet(STORAGE_KEY).then(function(idbData) {
+          if (idbData && Array.isArray(idbData.commonSongs) && Array.isArray(idbData.appreciationSongs)) {
+            state.commonSongs = idbData.commonSongs;
+            state.appreciationSongs = idbData.appreciationSongs;
+            render();
+          } else if (loadedSync) {
+            idbSet(STORAGE_KEY, {
+              commonSongs: state.commonSongs,
+              appreciationSongs: state.appreciationSongs
+            });
+          }
+        });
+      }
+
+      function saveData() {
+        const dataObj = {
+          commonSongs: state.commonSongs,
+          appreciationSongs: state.appreciationSongs
+        };
+        idbSet(STORAGE_KEY, dataObj);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(dataObj));
+        } catch (err) {
+          // Ignore storage quota / iframe restrictions
+        }
+        updateProgressStats();
+      }
+
+      // Theme Management
+      function initTheme() {
+        try {
+          const savedTheme = localStorage.getItem(THEME_KEY);
+          if (savedTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            document.getElementById("themeIcon").textContent = "☀️";
+          }
+        } catch (err) {}
+      }
+
+      function toggleTheme() {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        if (isDark) {
+          document.documentElement.removeAttribute("data-theme");
+          document.getElementById("themeIcon").textContent = "🌙";
+          try { localStorage.setItem(THEME_KEY, "light"); } catch (e) {}
+        } else {
+          document.documentElement.setAttribute("data-theme", "dark");
+          document.getElementById("themeIcon").textContent = "☀️";
+          try { localStorage.setItem(THEME_KEY, "dark"); } catch (e) {}
+        }
+      }
+
+      // Toast Notification
+      function showToast(msg) {
+        const container = document.getElementById("toastContainer");
+        const el = document.createElement("div");
+        el.className = "toast";
+        el.textContent = msg;
+        container.appendChild(el);
+        setTimeout(function() {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 2400);
+      }
+
+      // HTML Escape Helper
+      function escapeHtml(str) {
+        if (!str) return "";
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      // Helper for badges
+      function getGradeBadge(grade) {
+        const g = String(grade || "other");
+        if (g >= "1" && g <= "6") {
+          return '<span class="badge grade-' + g + '">第' + g + '学年</span>';
+        }
+        return '<span class="badge grade-other">音楽史・共通</span>';
+      }
+
+      function getCategoryBadge(cat) {
+        const c = String(cat || "");
+        let cls = "cat-shoka";
+        if (c.indexOf("わらべうた") !== -1) cls = "cat-warabe";
+        else if (c === "古歌") cls = "cat-koka";
+        else if (c.indexOf("日本古謡") !== -1) cls = "cat-koyo";
+        else if (c.indexOf("創作") !== -1 || c.indexOf("明記") !== -1) cls = "cat-author";
+        return '<span class="badge ' + cls + '">' + escapeHtml(c) + '</span>';
+      }
+
+      function getEraBadge(era) {
+        const e = String(era || "");
+        let cls = "era-baroque";
+        if (e.indexOf("古典派") !== -1) cls = "era-classical";
+        else if (e.indexOf("ロマン派") !== -1) cls = "era-romantic";
+        else if (e.indexOf("国民楽派") !== -1) cls = "era-national";
+        else if (e.indexOf("近代") !== -1) cls = "era-modern";
+        else if (e.indexOf("日本") !== -1) cls = "era-japan";
+        return '<span class="badge ' + cls + '">' + escapeHtml(e) + '</span>';
+      }
+
+      function getStatusButtonHtml(item, datasetType) {
+        const st = item.status || "unstarted";
+        let label = "未着手";
+        let cls = "status-unstarted";
+        if (st === "review") {
+          label = "★ 要復習";
+          cls = "status-review";
+        } else if (st === "mastered") {
+          label = "✓ 習得済";
+          cls = "status-mastered";
+        }
+        return '<button type="button" class="status-btn ' + cls + '" data-action="cycle-status" data-id="' + escapeHtml(item.id) + '" data-dataset="' + datasetType + '" title="クリックで学習状況を切り替え">' + label + '</button>';
+      }
+
+      function getYoutubeLinkHtml(item) {
+        let href = item.youtubeUrl ? item.youtubeUrl.trim() : "";
+        let label = "▶ 音源を聴く";
+        if (!href) {
+          const q = encodeURIComponent((item.title || "") + " " + (item.composer !== "文部省唱歌" ? (item.composer || "") : "小学校 音楽"));
+          href = "https://www.youtube.com/results?search_query=" + q;
+          label = "▶ YouTube検索";
+        }
+        return '<a href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-yt">' + label + '</a>';
+      }
+
+      function wrapMaskable(itemId, fieldType, innerHtml) {
+        if (!state.maskMode || !state.maskTargets[fieldType]) {
+          return innerHtml;
+        }
+        const key = itemId + "_" + fieldType;
+        const isRevealed = !!state.revealedCells[key];
+        const cls = isRevealed ? "maskable is-revealed" : "maskable is-masked";
+        return '<span class="' + cls + '" data-action="toggle-cell-mask" data-mask-key="' + escapeHtml(key) + '">' + innerHtml + '</span>';
+      }
+
+      // Update Progress Bar & Tab Counts
+      function updateProgressStats() {
+        const cTotal = state.commonSongs.length || 1;
+        const cMastered = state.commonSongs.filter(function(s) { return s.status === "mastered"; }).length;
+        const cReview = state.commonSongs.filter(function(s) { return s.status === "review"; }).length;
+        document.getElementById("statCommonText").textContent = "習得 " + cMastered + " / " + state.commonSongs.length + " 曲（要復習 " + cReview + "）";
+        document.getElementById("barCommonMastered").style.width = ((cMastered / cTotal) * 100).toFixed(1) + "%";
+        document.getElementById("barCommonReview").style.width = ((cReview / cTotal) * 100).toFixed(1) + "%";
+
+        const aTotal = state.appreciationSongs.length || 1;
+        const aMastered = state.appreciationSongs.filter(function(s) { return s.status === "mastered"; }).length;
+        const aReview = state.appreciationSongs.filter(function(s) { return s.status === "review"; }).length;
+        document.getElementById("statApprecText").textContent = "習得 " + aMastered + " / " + state.appreciationSongs.length + " 曲（要復習 " + aReview + "）";
+        document.getElementById("barApprecMastered").style.width = ((aMastered / aTotal) * 100).toFixed(1) + "%";
+        document.getElementById("barApprecReview").style.width = ((aReview / aTotal) * 100).toFixed(1) + "%";
+
+        document.getElementById("badgeCommonCount").textContent = String(state.commonSongs.length);
+        document.getElementById("badgeApprecCount").textContent = String(state.appreciationSongs.length);
+        document.getElementById("badgeComposerCount").textContent = String(state.appreciationSongs.length);
+      }
+
+      // Filtering Logic
+      function matchesSearch(item) {
+        if (!state.searchQuery) return true;
+        const q = state.searchQuery.toLowerCase();
+        const hay = [
+          item.title, item.reading, item.category, item.guideNotation,
+          item.lyricist, item.composer, item.country, item.era,
+          item.subInfo, item.notes
+        ].join(" ").toLowerCase();
+        return hay.indexOf(q) !== -1;
+      }
+
+      function matchesStatus(item) {
+        if (state.statusFilter === "all") return true;
+        return (item.status || "unstarted") === state.statusFilter;
+      }
+
+      // Render Active View
+      function render() {
+        updateProgressStats();
+
+        const gradeRow = document.getElementById("gradeFilterRow");
+        const catRow = document.getElementById("categoryFilterRow");
+        const eraRow = document.getElementById("eraFilterRow");
+        const btnGradeOther = document.getElementById("btnGradeOther");
+        const eraBanner = document.getElementById("eraSummaryBanner");
+
+        if (state.activeTab === "common") {
+          gradeRow.style.display = "flex";
+          catRow.style.display = "flex";
+          eraRow.style.display = "none";
+          btnGradeOther.style.display = "none";
+          eraBanner.style.display = "none";
+          renderCommonTab();
+        } else if (state.activeTab === "appreciation") {
+          gradeRow.style.display = "flex";
+          catRow.style.display = "none";
+          eraRow.style.display = "none";
+          btnGradeOther.style.display = "inline-block";
+          eraBanner.style.display = "none";
+          renderAppreciationTab();
+        } else {
+          gradeRow.style.display = "none";
+          catRow.style.display = "none";
+          eraRow.style.display = "flex";
+          eraBanner.style.display = "block";
+          const info = ERA_SUMMARIES[state.eraFilter] || ERA_SUMMARIES["all"];
+          document.getElementById("eraSummaryTitle").textContent = info.title;
+          document.getElementById("eraSummaryBody").textContent = info.body;
+          renderComposersTab();
+        }
+      }
+
+      // Tab 1: Common Repertoire
+      function renderCommonTab() {
+        const thead = document.getElementById("tableHead");
+        const tbody = document.getElementById("tableBody");
+        const emptyState = document.getElementById("emptyState");
+
+        thead.innerHTML =
+          "<tr>" +
+          "<th style='width:84px;'>学年</th>" +
+          "<th style='width:180px;'>曲名</th>" +
+          "<th style='width:140px;'>種別</th>" +
+          "<th style='width:130px;'>作詞者</th>" +
+          "<th style='width:130px;'>作曲者</th>" +
+          "<th style='width:125px;'>音源</th>" +
+          "<th>補足事項・教採メモ</th>" +
+          "<th style='width:120px;'>学習状況・操作</th>" +
+          "</tr>";
+
+        const filtered = state.commonSongs.filter(function(item) {
+          if (!matchesSearch(item) || !matchesStatus(item)) return false;
+          if (state.gradeFilter !== "all" && String(item.grade) !== state.gradeFilter) return false;
+          if (state.categoryFilter !== "all") {
+            const cat = item.category || "";
+            const gn = item.guideNotation || "";
+            if (state.categoryFilter === "文部省唱歌") {
+              if (cat.indexOf("文部省唱歌") === -1) return false;
+            } else if (state.categoryFilter === "指導要領：文部省唱歌のみ") {
+              if (gn.indexOf("指導要領：文部省唱歌のみ") === -1 && item.title !== "まきばの朝") return false;
+            } else if (state.categoryFilter === "古歌") {
+              if (cat.indexOf("古歌") === -1) return false;
+            } else if (state.categoryFilter === "日本古謡") {
+              if (cat.indexOf("日本古謡") === -1) return false;
+            } else if (state.categoryFilter === "わらべうた") {
+              if (cat.indexOf("わらべうた") === -1) return false;
+            } else if (state.categoryFilter === "作詞・作曲明記") {
+              if (gn.indexOf("個人名表記") === -1 && gn.indexOf("作詞・作曲明記") === -1 && item.title !== "まきばの朝") return false;
+            }
+          }
+          return true;
+        });
+
+        filtered.sort(function(a, b) {
+          const ga = parseInt(a.grade, 10) || 99;
+          const gb = parseInt(b.grade, 10) || 99;
+          if (ga !== gb) return ga - gb;
+          return String(a.reading || a.title).localeCompare(String(b.reading || b.title), "ja");
+        });
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = "";
+          emptyState.style.display = "block";
+          return;
+        }
+        emptyState.style.display = "none";
+
+        let html = "";
+        for (let i = 0; i < filtered.length; i++) {
+          const item = filtered[i];
+          const titleHtml = wrapMaskable(item.id, "title", '<span class="song-title-main">' + escapeHtml(item.title) + '</span>');
+          const catHtml = wrapMaskable(item.id, "category", getCategoryBadge(item.category));
+          const lyrHtml = wrapMaskable(item.id, "person", '<span>' + escapeHtml(item.lyricist || "—") + '</span>');
+          const compHtml = wrapMaskable(item.id, "person", '<span>' + escapeHtml(item.composer || "—") + '</span>');
+
+          html +=
+            "<tr>" +
+            '<td data-label="学年">' + getGradeBadge(item.grade) + '</td>' +
+            '<td data-label="曲名"><div>' + titleHtml + (item.subInfo ? '<div class="sub-meta">' + escapeHtml(item.subInfo) + '</div>' : '') + '</div></td>' +
+            '<td data-label="種別"><div>' + catHtml + (item.guideNotation ? '<div class="sub-meta">' + escapeHtml(item.guideNotation) + '</div>' : '') + '</div></td>' +
+            '<td data-label="作詞者">' + lyrHtml + '</td>' +
+            '<td data-label="作曲者">' + compHtml + '</td>' +
+            '<td data-label="音源">' + getYoutubeLinkHtml(item) + '</td>' +
+            '<td data-label="補足事項">' +
+              '<div class="note-box-wrap">' +
+                '<textarea class="inline-note" data-action="edit-note" data-dataset="common" data-id="' + escapeHtml(item.id) + '" placeholder="補足事項を記入...">' + escapeHtml(item.notes || "") + '</textarea>' +
+                (item.imageData ? '<img src="' + item.imageData + '" data-action="open-lightbox" alt="添付画像" style="max-height:80px; max-width:160px; border-radius:4px; border:1px solid var(--border-color); margin-top:4px; object-fit:contain; cursor:zoom-in;">' : '') +
+                '<span class="note-saved-hint" id="hint_' + escapeHtml(item.id) + '">✓ 自動保存しました</span>' +
+              '</div>' +
+            '</td>' +
+            '<td data-label="操作">' +
+              '<div class="action-stack">' +
+                getStatusButtonHtml(item, "common") +
+                '<div class="row-actions">' +
+                  '<button type="button" class="btn btn-sm" data-action="open-edit" data-dataset="common" data-id="' + escapeHtml(item.id) + '">編集</button>' +
+                '</div>' +
+              '</div>' +
+            '</td>' +
+            "</tr>";
+        }
+        tbody.innerHTML = html;
+      }
+
+      // Tab 2: Appreciation Materials by Grade
+      function renderAppreciationTab() {
+        const thead = document.getElementById("tableHead");
+        const tbody = document.getElementById("tableBody");
+        const emptyState = document.getElementById("emptyState");
+
+        thead.innerHTML =
+          "<tr>" +
+          "<th style='width:95px;'>学年</th>" +
+          "<th style='width:220px;'>曲名</th>" +
+          "<th style='width:150px;'>作曲家</th>" +
+          "<th style='width:110px;'>出身国</th>" +
+          "<th style='width:125px;'>音源</th>" +
+          "<th>補足事項・教採メモ</th>" +
+          "<th style='width:120px;'>学習状況・操作</th>" +
+          "</tr>";
+
+        const filtered = state.appreciationSongs.filter(function(item) {
+          if (!matchesSearch(item) || !matchesStatus(item)) return false;
+          if (state.gradeFilter !== "all" && String(item.grade) !== state.gradeFilter) return false;
+          return true;
+        });
+
+        filtered.sort(function(a, b) {
+          const ga = a.grade === "other" ? 99 : (parseInt(a.grade, 10) || 99);
+          const gb = b.grade === "other" ? 99 : (parseInt(b.grade, 10) || 99);
+          if (ga !== gb) return ga - gb;
+          return String(a.title).localeCompare(String(b.title), "ja");
+        });
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = "";
+          emptyState.style.display = "block";
+          return;
+        }
+        emptyState.style.display = "none";
+
+        let html = "";
+        for (let i = 0; i < filtered.length; i++) {
+          const item = filtered[i];
+          const titleHtml = wrapMaskable(item.id, "title", '<span class="song-title-main">' + escapeHtml(item.title) + '</span>');
+          const compHtml = wrapMaskable(item.id, "person", '<strong>' + escapeHtml(item.composer || "—") + '</strong>');
+          const eraHtml = wrapMaskable(item.id, "category", getEraBadge(item.era));
+          const countryHtml = wrapMaskable(item.id, "country", '<span>' + escapeHtml(item.country || "—") + '</span>');
+
+          html +=
+            "<tr>" +
+            '<td data-label="学年">' + getGradeBadge(item.grade) + '</td>' +
+            '<td data-label="曲名"><div>' + titleHtml + (item.subInfo ? '<div class="sub-meta">' + escapeHtml(item.subInfo) + '</div>' : '') + '</div></td>' +
+            '<td data-label="作曲家"><div>' + compHtml + '<div style="margin-top:4px;">' + eraHtml + '</div></div></td>' +
+            '<td data-label="出身国">' + countryHtml + '</td>' +
+            '<td data-label="音源">' + getYoutubeLinkHtml(item) + '</td>' +
+            '<td data-label="補足事項">' +
+              '<div class="note-box-wrap">' +
+                '<textarea class="inline-note" data-action="edit-note" data-dataset="appreciation" data-id="' + escapeHtml(item.id) + '" placeholder="補足事項を記入...">' + escapeHtml(item.notes || "") + '</textarea>' +
+                (item.imageData ? '<img src="' + item.imageData + '" data-action="open-lightbox" alt="添付画像" style="max-height:80px; max-width:160px; border-radius:4px; border:1px solid var(--border-color); margin-top:4px; object-fit:contain; cursor:zoom-in;">' : '') +
+                '<span class="note-saved-hint" id="hint_' + escapeHtml(item.id) + '">✓ 自動保存しました</span>' +
+              '</div>' +
+            '</td>' +
+            '<td data-label="操作">' +
+              '<div class="action-stack">' +
+                getStatusButtonHtml(item, "appreciation") +
+                '<div class="row-actions">' +
+                  '<button type="button" class="btn btn-sm" data-action="open-edit" data-dataset="appreciation" data-id="' + escapeHtml(item.id) + '">編集</button>' +
+                '</div>' +
+              '</div>' +
+            '</td>' +
+            "</tr>";
+        }
+        tbody.innerHTML = html;
+      }
+
+      // Tab 3: Composers by Era
+      function renderComposersTab() {
+        const thead = document.getElementById("tableHead");
+        const tbody = document.getElementById("tableBody");
+        const emptyState = document.getElementById("emptyState");
+
+        thead.innerHTML =
+          "<tr>" +
+          "<th style='width:135px;'>時代区分</th>" +
+          "<th style='width:145px;'>作曲家</th>" +
+          "<th style='width:110px;'>出身国</th>" +
+          "<th style='width:220px;'>曲名（対象学年）</th>" +
+          "<th style='width:125px;'>音源</th>" +
+          "<th>補足事項・教採メモ</th>" +
+          "<th style='width:120px;'>学習状況・操作</th>" +
+          "</tr>";
+
+        const eraOrder = {
+          "バロック音楽": 1,
+          "古典派の音楽": 2,
+          "ロマン派の音楽": 3,
+          "国民楽派の音楽": 4,
+          "近代・現代の音楽": 5,
+          "日本の伝統・郷土音楽": 6
+        };
+
+        const filtered = state.appreciationSongs.filter(function(item) {
+          if (!matchesSearch(item) || !matchesStatus(item)) return false;
+          if (state.eraFilter !== "all" && item.era !== state.eraFilter) return false;
+          return true;
+        });
+
+        filtered.sort(function(a, b) {
+          const ea = eraOrder[a.era] || 99;
+          const eb = eraOrder[b.era] || 99;
+          if (ea !== eb) return ea - eb;
+          const compCmp = String(a.composer).localeCompare(String(b.composer), "ja");
+          if (compCmp !== 0) return compCmp;
+          return String(a.title).localeCompare(String(b.title), "ja");
+        });
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = "";
+          emptyState.style.display = "block";
+          return;
+        }
+        emptyState.style.display = "none";
+
+        let html = "";
+        for (let i = 0; i < filtered.length; i++) {
+          const item = filtered[i];
+          const eraHtml = wrapMaskable(item.id, "category", getEraBadge(item.era));
+          const compHtml = wrapMaskable(item.id, "person", '<strong>' + escapeHtml(item.composer || "—") + '</strong>');
+          const countryHtml = wrapMaskable(item.id, "country", '<span>' + escapeHtml(item.country || "—") + '</span>');
+          const titleHtml = wrapMaskable(item.id, "title", '<span class="song-title-main">' + escapeHtml(item.title) + '</span>');
+
+          html +=
+            "<tr>" +
+            '<td data-label="時代区分">' + eraHtml + '</td>' +
+            '<td data-label="作曲家">' + compHtml + '</td>' +
+            '<td data-label="出身国">' + countryHtml + '</td>' +
+            '<td data-label="曲名"><div>' + titleHtml + '<div style="margin-top:4px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">' + getGradeBadge(item.grade) + (item.subInfo ? '<span class="sub-meta">' + escapeHtml(item.subInfo) + '</span>' : '') + '</div></div></td>' +
+            '<td data-label="音源">' + getYoutubeLinkHtml(item) + '</td>' +
+            '<td data-label="補足事項">' +
+              '<div class="note-box-wrap">' +
+                '<textarea class="inline-note" data-action="edit-note" data-dataset="appreciation" data-id="' + escapeHtml(item.id) + '" placeholder="補足事項を記入...">' + escapeHtml(item.notes || "") + '</textarea>' +
+                (item.imageData ? '<img src="' + item.imageData + '" data-action="open-lightbox" alt="添付画像" style="max-height:80px; max-width:160px; border-radius:4px; border:1px solid var(--border-color); margin-top:4px; object-fit:contain; cursor:zoom-in;">' : '') +
+                '<span class="note-saved-hint" id="hint_' + escapeHtml(item.id) + '">✓ 自動保存しました</span>' +
+              '</div>' +
+            '</td>' +
+            '<td data-label="操作">' +
+              '<div class="action-stack">' +
+                getStatusButtonHtml(item, "appreciation") +
+                '<div class="row-actions">' +
+                  '<button type="button" class="btn btn-sm" data-action="open-edit" data-dataset="appreciation" data-id="' + escapeHtml(item.id) + '">編集</button>' +
+                '</div>' +
+              '</div>' +
+            '</td>' +
+            "</tr>";
+        }
+        tbody.innerHTML = html;
+      }
+
+      // Modal Helpers
+      function updateFormFieldsVisibility(datasetType) {
+        const isCommon = datasetType === "common";
+        document.getElementById("groupCategory").style.display = isCommon ? "flex" : "none";
+        document.getElementById("groupLyricist").style.display = isCommon ? "flex" : "none";
+        document.getElementById("groupEra").style.display = isCommon ? "none" : "flex";
+        document.getElementById("groupCountry").style.display = isCommon ? "none" : "flex";
+      }
+
+      function openAddModal() {
+        document.getElementById("songModalTitle").textContent = "新しい曲データを追加";
+        document.getElementById("formSongId").value = "";
+        const defaultDataset = state.activeTab === "common" ? "common" : "appreciation";
+        document.getElementById("formDatasetType").value = defaultDataset;
+        document.getElementById("formDatasetType").disabled = false;
+        updateFormFieldsVisibility(defaultDataset);
+
+        document.getElementById("formGrade").value = state.gradeFilter !== "all" ? state.gradeFilter : "1";
+        document.getElementById("formTitle").value = "";
+        document.getElementById("formCategory").value = "文部省唱歌";
+        document.getElementById("formEra").value = state.eraFilter !== "all" ? state.eraFilter : "バロック音楽";
+        document.getElementById("formLyricist").value = "";
+        document.getElementById("formComposer").value = "";
+        document.getElementById("formCountry").value = "";
+        document.getElementById("formSubInfo").value = "";
+        document.getElementById("formYoutubeUrl").value = "";
+        document.getElementById("formNotes").value = "";
+        currentFormImageData = "";
+        document.getElementById("formImageInput").value = "";
+        document.getElementById("formImagePreviewWrap").style.display = "none";
+        document.getElementById("btnClearFormImage").style.display = "none";
+        document.getElementById("btnDeleteInModal").style.display = "none";
+        document.getElementById("songDeleteConfirmBox").style.display = "none";
+
+        document.getElementById("songModal").classList.add("open");
+      }
+
+      function openEditModal(datasetType, id) {
+        const list = datasetType === "common" ? state.commonSongs : state.appreciationSongs;
+        const item = list.find(function(x) { return x.id === id; });
+        if (!item) return;
+
+        document.getElementById("songModalTitle").textContent = "曲データの編集: " + item.title;
+        document.getElementById("formSongId").value = item.id;
+        document.getElementById("formDatasetType").value = datasetType;
+        document.getElementById("formDatasetType").disabled = true;
+        updateFormFieldsVisibility(datasetType);
+
+        document.getElementById("formGrade").value = String(item.grade || "1");
+        document.getElementById("formTitle").value = item.title || "";
+        document.getElementById("formCategory").value = item.category || "文部省唱歌";
+        document.getElementById("formEra").value = item.era || "バロック音楽";
+        document.getElementById("formLyricist").value = item.lyricist || "";
+        document.getElementById("formComposer").value = item.composer || "";
+        document.getElementById("formCountry").value = item.country || "";
+        document.getElementById("formSubInfo").value = item.subInfo || "";
+        document.getElementById("formYoutubeUrl").value = item.youtubeUrl || "";
+        document.getElementById("formNotes").value = item.notes || "";
+        currentFormImageData = item.imageData || "";
+        document.getElementById("formImageInput").value = "";
+        if (currentFormImageData) {
+          document.getElementById("formImagePreview").src = currentFormImageData;
+          document.getElementById("formImagePreviewWrap").style.display = "block";
+          document.getElementById("btnClearFormImage").style.display = "inline-flex";
+        } else {
+          document.getElementById("formImagePreviewWrap").style.display = "none";
+          document.getElementById("btnClearFormImage").style.display = "none";
+        }
+        document.getElementById("btnDeleteInModal").style.display = "inline-flex";
+        document.getElementById("songDeleteConfirmBox").style.display = "none";
+
+        document.getElementById("songModal").classList.add("open");
+      }
+
+      function closeSongModal() {
+        document.getElementById("songModal").classList.remove("open");
+      }
+
+      // Event Bindings
+      function bindEvents() {
+        // Main Tabs
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        tabBtns.forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            tabBtns.forEach(function(b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+            state.activeTab = btn.getAttribute("data-tab");
+            if (state.activeTab === "common" && state.gradeFilter === "other") {
+              state.gradeFilter = "all";
+              syncPillSelection("gradeFilterGroup", "data-grade", "all");
+            }
+            render();
+          });
+        });
+
+        // Search
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", function() {
+          state.searchQuery = searchInput.value.trim();
+          render();
+        });
+        document.getElementById("btnClearSearch").addEventListener("click", function() {
+          searchInput.value = "";
+          state.searchQuery = "";
+          render();
+        });
+
+        // Filter Pills
+        bindPillGroup("statusFilterGroup", "data-status", function(val) {
+          state.statusFilter = val;
+          render();
+        });
+        bindPillGroup("gradeFilterGroup", "data-grade", function(val) {
+          state.gradeFilter = val;
+          render();
+        });
+        bindPillGroup("categoryFilterGroup", "data-category", function(val) {
+          state.categoryFilter = val;
+          render();
+        });
+        bindPillGroup("eraFilterGroup", "data-era", function(val) {
+          state.eraFilter = val;
+          render();
+        });
+
+        // Red Sheet Mask Mode
+        const btnToggleMask = document.getElementById("btnToggleMask");
+        const maskToolbar = document.getElementById("maskToolbar");
+        btnToggleMask.addEventListener("click", function() {
+          state.maskMode = !state.maskMode;
+          state.revealedCells = {};
+          if (state.maskMode) {
+            btnToggleMask.classList.add("btn-mask-active");
+            btnToggleMask.innerHTML = "<span>赤シート暗記: ON</span>";
+            maskToolbar.classList.add("visible");
+          } else {
+            btnToggleMask.classList.remove("btn-mask-active");
+            btnToggleMask.innerHTML = "<span>赤シート暗記: OFF</span>";
+            maskToolbar.classList.remove("visible");
+          }
+          render();
+        });
+
+        document.querySelectorAll(".mask-check").forEach(function(chk) {
+          chk.addEventListener("change", function() {
+            state.maskTargets[chk.value] = chk.checked;
+            render();
+          });
+        });
+
+        document.getElementById("btnRevealAll").addEventListener("click", function() {
+          const allItems = state.commonSongs.concat(state.appreciationSongs);
+          allItems.forEach(function(item) {
+            ["title", "person", "category", "country"].forEach(function(f) {
+              state.revealedCells[item.id + "_" + f] = true;
+            });
+          });
+          render();
+        });
+
+        document.getElementById("btnHideAll").addEventListener("click", function() {
+          state.revealedCells = {};
+          render();
+        });
+
+        // Delegated Table Events
+        const tableBody = document.getElementById("tableBody");
+        tableBody.addEventListener("click", function(e) {
+          const maskTarget = e.target.closest("[data-action='toggle-cell-mask']");
+          if (maskTarget) {
+            const key = maskTarget.getAttribute("data-mask-key");
+            state.revealedCells[key] = !state.revealedCells[key];
+            render();
+            return;
+          }
+
+          const statusBtn = e.target.closest("[data-action='cycle-status']");
+          if (statusBtn) {
+            const id = statusBtn.getAttribute("data-id");
+            const ds = statusBtn.getAttribute("data-dataset");
+            const list = ds === "common" ? state.commonSongs : state.appreciationSongs;
+            const item = list.find(function(x) { return x.id === id; });
+            if (item) {
+              const order = ["unstarted", "review", "mastered"];
+              const idx = order.indexOf(item.status || "unstarted");
+              item.status = order[(idx + 1) % order.length];
+              saveData();
+              render();
+            }
+            return;
+          }
+
+          const editBtn = e.target.closest("[data-action='open-edit']");
+          if (editBtn) {
+            const id = editBtn.getAttribute("data-id");
+            const ds = editBtn.getAttribute("data-dataset");
+            openEditModal(ds, id);
+          }
+        });
+
+        // Inline Note Auto-Save
+        tableBody.addEventListener("input", function(e) {
+          const ta = e.target.closest("[data-action='edit-note']");
+          if (!ta) return;
+          const id = ta.getAttribute("data-id");
+          const ds = ta.getAttribute("data-dataset");
+          const list = ds === "common" ? state.commonSongs : state.appreciationSongs;
+          const item = list.find(function(x) { return x.id === id; });
+          if (item) {
+            item.notes = ta.value;
+            saveData();
+            const hint = document.getElementById("hint_" + id);
+            if (hint) {
+              hint.classList.add("show");
+              clearTimeout(hint._timer);
+              hint._timer = setTimeout(function() {
+                hint.classList.remove("show");
+              }, 1500);
+            }
+          }
+        });
+
+        // Theme Toggle
+        document.getElementById("btnToggleTheme").addEventListener("click", toggleTheme);
+        document.getElementById("btnBackPortal").addEventListener("click", function() {
+          window.location.href = "./index.html";
+        });
+
+        tableBody.addEventListener("click", function(e) {
+          const lbImg = e.target.closest("[data-action='open-lightbox']");
+          if (lbImg) {
+            document.getElementById("musicLightboxImg").src = lbImg.getAttribute("src");
+            document.getElementById("musicLightboxModal").classList.add("open");
+          }
+        });
+        document.getElementById("btnCloseMusicLightbox").addEventListener("click", function() {
+          document.getElementById("musicLightboxModal").classList.remove("open");
+        });
+
+        document.querySelectorAll(".modal-backdrop").forEach(function(backdrop) {
+          backdrop.addEventListener("click", function(e) {
+            if (e.target === backdrop) backdrop.classList.remove("open");
+          });
+        });
+
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") {
+            document.querySelectorAll(".modal-backdrop.open").forEach(function(m) {
+              m.classList.remove("open");
+            });
+            return;
+          }
+          const tag = document.activeElement ? document.activeElement.tagName : "";
+          if (tag !== "INPUT" && tag !== "TEXTAREA" && tag !== "SELECT" && e.key === "/" && !document.querySelector(".modal-backdrop.open")) {
+            e.preventDefault();
+            document.getElementById("searchInput").focus();
+          }
+        });
+
+        document.getElementById("btnExportBakedMusicHtml").addEventListener("click", function() {
+          const rawHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+          const sMarker = "/* __MUSIC_DEFAULTS_START__ */";
+          const eMarker = "/* __MUSIC_DEFAULTS_END__ */";
+          const sIdx = rawHtml.indexOf(sMarker);
+          const eIdx = rawHtml.indexOf(eMarker);
+          if (sIdx === -1 || eIdx === -1) {
+            showToast("テンプレート領域が見つかりません");
+            return;
+          }
+          const replacement =
+            sMarker + "\n" +
+            "      const INITIAL_COMMON_SONGS = " + JSON.stringify(state.commonSongs, null, 2) + ";\n\n" +
+            "      const INITIAL_APPRECIATION_SONGS = " + JSON.stringify(state.appreciationSongs, null, 2) + ";\n      " +
+            eMarker;
+          const finalHtml = rawHtml.slice(0, sIdx) + replacement + rawHtml.slice(eIdx + eMarker.length);
+          const blob = new Blob([finalHtml], { type: "text/html" });
+          triggerDownloadBlob(blob, "musicnotebook.html");
+        });
+
+        document.getElementById("btnCopyMusicJson").addEventListener("click", function() {
+          const dataStr = JSON.stringify({
+            exportedAt: new Date().toISOString(),
+            commonSongs: state.commonSongs,
+            appreciationSongs: state.appreciationSongs
+          }, null, 2);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(dataStr).then(function() {
+              showToast("📋 JSON文字列をコピーしました");
+            });
+          } else {
+            const ta = document.createElement("textarea");
+            ta.value = dataStr;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            showToast("📋 JSON文字列をコピーしました");
+          }
+        });
+
+        document.getElementById("btnToggleMusicPasteJson").addEventListener("click", function() {
+          const area = document.getElementById("musicPasteJsonArea");
+          area.style.display = area.style.display === "none" ? "block" : "none";
+          if (area.style.display === "block") document.getElementById("musicPasteJsonInput").focus();
+        });
+        document.getElementById("btnCancelMusicPasteJson").addEventListener("click", function() {
+          document.getElementById("musicPasteJsonArea").style.display = "none";
+          document.getElementById("musicPasteJsonInput").value = "";
+        });
+        document.getElementById("btnApplyMusicPasteJson").addEventListener("click", function() {
+          const raw = document.getElementById("musicPasteJsonInput").value.trim();
+          if (!raw) {
+            showToast("JSON文字列を貼り付けてください");
+            return;
+          }
+          try {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed.commonSongs) && Array.isArray(parsed.appreciationSongs)) {
+              state.commonSongs = parsed.commonSongs;
+              state.appreciationSongs = parsed.appreciationSongs;
+              saveData();
+              render();
+              document.getElementById("musicPasteJsonInput").value = "";
+              document.getElementById("musicPasteJsonArea").style.display = "none";
+              dataModal.classList.remove("open");
+              showToast("バックアップデータを復元しました");
+            } else {
+              showToast("無効なJSON形式です");
+            }
+          } catch (e) {
+            showToast("JSONの解析に失敗しました");
+          }
+        });
+
+
+        // Song Add/Edit Modal
+        document.getElementById("btnOpenAddModal").addEventListener("click", openAddModal);
+        document.getElementById("btnCloseSongModal").addEventListener("click", closeSongModal);
+        document.getElementById("btnCancelSongModal").addEventListener("click", closeSongModal);
+
+        document.getElementById("formDatasetType").addEventListener("change", function(e) {
+          updateFormFieldsVisibility(e.target.value);
+        });
+
+        document.getElementById("songForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+          const id = document.getElementById("formSongId").value;
+          const ds = document.getElementById("formDatasetType").value;
+          const list = ds === "common" ? state.commonSongs : state.appreciationSongs;
+
+          const payload = {
+            id: id || (ds === "common" ? "c_" : "a_") + Date.now(),
+            grade: document.getElementById("formGrade").value,
+            title: document.getElementById("formTitle").value.trim(),
+            category: document.getElementById("formCategory").value,
+            era: document.getElementById("formEra").value,
+            lyricist: document.getElementById("formLyricist").value.trim(),
+            composer: document.getElementById("formComposer").value.trim(),
+            country: document.getElementById("formCountry").value.trim(),
+            subInfo: document.getElementById("formSubInfo").value.trim(),
+            youtubeUrl: document.getElementById("formYoutubeUrl").value.trim(),
+            notes: document.getElementById("formNotes").value,
+            imageData: currentFormImageData || "",
+            status: "unstarted"
+          };
+
+          if (id) {
+            const idx = list.findIndex(function(x) { return x.id === id; });
+            if (idx !== -1) {
+              payload.status = list[idx].status || "unstarted";
+              payload.guideNotation = list[idx].guideNotation || "";
+              payload.reading = list[idx].reading || payload.title;
+              list[idx] = payload;
+            }
+            showToast("曲データを更新しました");
+          } else {
+            list.push(payload);
+            showToast("新しい曲を追加しました");
+          }
+
+          saveData();
+          closeSongModal();
+          render();
+        });
+
+        document.getElementById("btnDeleteInModal").addEventListener("click", function() {
+          document.getElementById("songDeleteConfirmBox").style.display = "block";
+        });
+        document.getElementById("btnCancelDeleteSong").addEventListener("click", function() {
+          document.getElementById("songDeleteConfirmBox").style.display = "none";
+        });
+        document.getElementById("btnConfirmDeleteSong").addEventListener("click", function() {
+          const id = document.getElementById("formSongId").value;
+          const ds = document.getElementById("formDatasetType").value;
+          if (!id) return;
+          if (ds === "common") {
+            state.commonSongs = state.commonSongs.filter(function(x) { return x.id !== id; });
+          } else {
+            state.appreciationSongs = state.appreciationSongs.filter(function(x) { return x.id !== id; });
+          }
+          saveData();
+          closeSongModal();
+          render();
+          showToast("曲データを削除しました");
+        });
+
+        // Cheat Sheet Modal
+        const cheatModal = document.getElementById("cheatModal");
+        document.getElementById("btnOpenCheatSheet").addEventListener("click", function() {
+          cheatModal.classList.add("open");
+        });
+        document.getElementById("btnCloseCheatModal").addEventListener("click", function() {
+          cheatModal.classList.remove("open");
+        });
+        document.getElementById("btnCloseCheatFooter").addEventListener("click", function() {
+          cheatModal.classList.remove("open");
+        });
+
+        // Data Backup / Reset Modal
+        const dataModal = document.getElementById("dataModal");
+        const resetConfirmArea = document.getElementById("resetConfirmArea");
+        document.getElementById("btnOpenDataModal").addEventListener("click", function() {
+          resetConfirmArea.style.display = "none";
+          dataModal.classList.add("open");
+        });
+        document.getElementById("btnCloseDataModal").addEventListener("click", function() {
+          dataModal.classList.remove("open");
+        });
+        document.getElementById("btnCloseDataFooter").addEventListener("click", function() {
+          dataModal.classList.remove("open");
+        });
+
+        // Image attachment auto-compression in Song Modal
+        document.getElementById("formImageInput").addEventListener("change", function(e) {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          compressImageFile(file).then(function(dataUrl) {
+            currentFormImageData = dataUrl;
+            document.getElementById("formImagePreview").src = dataUrl;
+            document.getElementById("formImagePreviewWrap").style.display = "block";
+            document.getElementById("btnClearFormImage").style.display = "inline-flex";
+            showToast("画像を自動縮小・圧縮しました");
+          }).catch(function() {
+            showToast("画像の圧縮に失敗しました");
+          });
+        });
+
+        document.getElementById("btnClearFormImage").addEventListener("click", function() {
+          currentFormImageData = "";
+          document.getElementById("formImageInput").value = "";
+          document.getElementById("formImagePreviewWrap").style.display = "none";
+          document.getElementById("btnClearFormImage").style.display = "none";
+        });
+
+        // Hybrid Export JSON (file:// -> Web Share API, https:// -> Standard download)
+        function triggerDownloadBlob(blob, fileName) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
+          showToast("バックアップ用JSONをダウンロードしました");
+        }
+
+        document.getElementById("btnExportJson").addEventListener("click", function() {
+          const dataStr = JSON.stringify({
+            exportedAt: new Date().toISOString(),
+            commonSongs: state.commonSongs,
+            appreciationSongs: state.appreciationSongs
+          }, null, 2);
+          const fileName = "elementary_music_study_backup.json";
+          const blob = new Blob([dataStr], { type: "application/json" });
+          const isLocalFile = (window.location.protocol === "file:");
+
+          if (isLocalFile && typeof File === "function" && navigator.canShare) {
+            try {
+              const fileObj = new File([dataStr], fileName, { type: "application/json" });
+              if (navigator.canShare({ files: [fileObj] })) {
+                navigator.share({
+                  files: [fileObj],
+                  title: "音楽対策ノート バックアップ",
+                  text: "小学校音楽 教採対策ノートのバックアップデータ"
+                }).then(function() {
+                  showToast("共有シートからバックアップを出力しました");
+                }).catch(function(err) {
+                  if (err && err.name !== "AbortError") {
+                    triggerDownloadBlob(blob, fileName);
+                  }
+                });
+                return;
+              }
+            } catch (e) {}
+          }
+
+          try {
+            triggerDownloadBlob(blob, fileName);
+          } catch (err) {
+            if (typeof File === "function" && navigator.canShare) {
+              try {
+                const fallbackFile = new File([dataStr], fileName, { type: "application/json" });
+                if (navigator.canShare({ files: [fallbackFile] })) {
+                  navigator.share({ files: [fallbackFile], title: "音楽対策ノート バックアップ" });
+                  return;
+                }
+              } catch (e2) {}
+            }
+            showToast("バックアップの保存に失敗しました");
+          }
+        });
+
+        // Import JSON
+        document.getElementById("inputImportJson").addEventListener("change", function(e) {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            try {
+              const parsed = JSON.parse(ev.target.result);
+              if (Array.isArray(parsed.commonSongs) && Array.isArray(parsed.appreciationSongs)) {
+                state.commonSongs = parsed.commonSongs;
+                state.appreciationSongs = parsed.appreciationSongs;
+                saveData();
+                render();
+                dataModal.classList.remove("open");
+                showToast("バックアップデータを復元しました");
+              } else {
+                showToast("無効なJSON形式です");
+              }
+            } catch (err) {
+              showToast("JSONファイルの読み込みに失敗しました");
+            }
+          };
+          reader.readAsText(file);
+          e.target.value = "";
+        });
+
+        // Reset to Initial Data
+        document.getElementById("btnRequestReset").addEventListener("click", function() {
+          resetConfirmArea.style.display = "block";
+        });
+        document.getElementById("btnCancelReset").addEventListener("click", function() {
+          resetConfirmArea.style.display = "none";
+        });
+        document.getElementById("btnConfirmReset").addEventListener("click", function() {
+          state.commonSongs = JSON.parse(JSON.stringify(INITIAL_COMMON_SONGS));
+          state.appreciationSongs = JSON.parse(JSON.stringify(INITIAL_APPRECIATION_SONGS));
+          saveData();
+          render();
+          resetConfirmArea.style.display = "none";
+          dataModal.classList.remove("open");
+          showToast("初期データにリセットしました");
+        });
+      }
+
+      function bindPillGroup(containerId, attrName, onSelect) {
+        const container = document.getElementById(containerId);
+        const btns = container.querySelectorAll(".pill-btn");
+        btns.forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            btns.forEach(function(b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+            onSelect(btn.getAttribute(attrName));
+          });
+        });
+      }
+
+      function syncPillSelection(containerId, attrName, targetVal) {
+        const container = document.getElementById(containerId);
+        const btns = container.querySelectorAll(".pill-btn");
+        btns.forEach(function(btn) {
+          if (btn.getAttribute(attrName) === targetVal) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      // Initialize App
+      initTheme();
+      loadData();
+      bindEvents();
+      render();
+    })();
+  </script>
+</body>
+</html>
