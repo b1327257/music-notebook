@@ -843,16 +843,173 @@
       font-size: 14px;
     }
 
+
+    /* Dashboard & Upgraded UI Styles */
+    .brand {
+      cursor: pointer;
+    }
+    .header-progress-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .header-progress-pill:hover {
+      filter: brightness(0.96);
+    }
+    .dash-hero {
+      background: linear-gradient(135deg, var(--primary-soft), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .dash-hero-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .dash-kpi {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      min-width: 118px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .dash-kpi-num {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .dash-kpi-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .dash-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .dash-card:hover {
+      transform: translateY(-2px);
+    }
+    .dash-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .dash-card-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 4px;
+    }
+    .dash-card-desc {
+      font-size: 12.8px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .dash-card-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+    }
+    .quick-toc-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+      align-items: center;
+    }
+    .toc-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--surface-sub);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .toc-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .toc-pill.mastered {
+      background: var(--success-soft);
+      color: var(--success);
+      border-color: var(--success);
+    }
+    .toc-pill.review {
+      background: var(--warn-soft);
+      color: var(--warn);
+      border-color: var(--warn);
+    }
+    @media (min-width: 961px) {
+      .editor-pane {
+        position: sticky;
+        top: 108px;
+        max-height: calc(100vh - 126px);
+        overflow-y: auto;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header class="app-header">
     <div class="header-top">
-      <div class="brand">
+      <div class="brand" id="brandHomeBtn" title="ホーム（ダッシュボード）へ戻る">
         <div class="brand-icon">♪</div>
-        <h1 class="brand-title">小学校教員資格認定試験 音楽専門対策ノート</h1>
+        <div>
+          <h1 class="brand-title">小学校教員資格認定試験・教採 音楽専門対策</h1>
+        </div>
       </div>
       <div class="header-actions">
+        <button type="button" class="header-progress-pill" id="headerProgressBtn" title="ホームで詳細な進捗を見る">
+          <span>総合習得</span>
+          <span id="headerTotalPct">0%</span>
+        </button>
         <button type="button" class="btn" id="btnMaskToggle">暗記マスク: OFF</button>
         <button type="button" class="btn" id="btnOpenAddModal">＋ 項目追加</button>
         <button type="button" class="btn" id="btnOpenDataModal">データ管理</button>
@@ -860,56 +1017,35 @@
       </div>
     </div>
     <nav class="nav-tabs" aria-label="メインナビゲーション">
-      <button type="button" class="nav-tab active" data-main-tab="tab-quiz">
-        1. 科目Ⅱ 択一・過去問 <span class="tab-pill-count" id="countTabQuiz">56</span>
-      </button>
-      <button type="button" class="nav-tab" data-main-tab="tab-piece">
-        2. 科目Ⅲ 問1（楽曲記述） <span class="tab-pill-count" id="countTabPiece">78</span>
-      </button>
-      <button type="button" class="nav-tab" data-main-tab="tab-guidance">
-        3. 科目Ⅲ 問2（指導要領記述） <span class="tab-pill-count" id="countTabGuidance">22</span>
+      <button type="button" class="nav-tab active" data-main-tab="tab-home">
+        🏠 ホーム <span class="tab-pill-count" id="countTabHome">進捗・復習</span>
       </button>
       <button type="button" class="nav-tab" data-main-tab="tab-cloze">
-        4. 指導要領 穴埋め暗記 <span class="tab-pill-count" id="countTabCloze">257空欄</span>
+        1. 指導要領 穴埋め <span class="tab-pill-count" id="countTabCloze">20条項・257空欄</span>
       </button>
       <button type="button" class="nav-tab" data-main-tab="tab-db">
-        5. 知識データベース <span class="tab-pill-count" id="countTabDb">137</span>
+        2. 知識データベース <span class="tab-pill-count" id="countTabDb">137</span>
       </button>
-      <button type="button" class="nav-tab" data-main-tab="tab-log">
-        6. 学習記録・採点ログ <span class="tab-pill-count" id="countTabLog">0</span>
+      <button type="button" class="nav-tab" data-main-tab="tab-quiz">
+        3. 科目Ⅱ 択一過去問 <span class="tab-pill-count" id="countTabQuiz">56</span>
       </button>
-      <button type="button" class="nav-tab" data-main-tab="tab-guide">
-        7. 勉強の進め方・合格戦略
+      <button type="button" class="nav-tab" data-main-tab="tab-piece">
+        4. 科目Ⅲ 問1（楽曲記述） <span class="tab-pill-count" id="countTabPiece">78</span>
+      </button>
+      <button type="button" class="nav-tab" data-main-tab="tab-guidance">
+        5. 科目Ⅲ 問2（指導要領記述） <span class="tab-pill-count" id="countTabGuidance">22</span>
       </button>
     </nav>
   </header>
 
   <main class="container">
-    <section class="summary-strip" aria-label="学習進捗サマリー">
-      <div class="stat-card">
-        <div class="stat-label"><span>科目Ⅱ 過去問・ドリル習得</span><span id="statQuizPct">0%</span></div>
-        <div class="stat-value" id="statQuizFraction">0 / 56</div>
-        <div class="stat-bar"><div class="stat-bar-fill" id="statQuizBar" style="width:0%"></div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label"><span>科目Ⅲ 問1（楽曲記述）習得</span><span id="statPiecePct">0%</span></div>
-        <div class="stat-value" id="statPieceFraction">0 / 78</div>
-        <div class="stat-bar"><div class="stat-bar-fill" id="statPieceBar" style="width:0%"></div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label"><span>科目Ⅲ 問2（指導要領）習得</span><span id="statGuidancePct">0%</span></div>
-        <div class="stat-value" id="statGuidanceFraction">0 / 22</div>
-        <div class="stat-bar"><div class="stat-bar-fill" id="statGuidanceBar" style="width:0%"></div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label"><span>共通教材24曲・知識DB習得</span><span id="statDbPct">0%</span></div>
-        <div class="stat-value" id="statDbFraction">0 / 24</div>
-        <div class="stat-bar"><div class="stat-bar-fill" id="statDbBar" style="width:0%"></div></div>
-      </div>
+    <!-- ==================== TAB 0: ホーム（総合ダッシュボード） ==================== -->
+    <section id="tab-home" class="tab-view">
+      <div id="homeDashboardContainer"></div>
     </section>
 
-    <!-- ==================== TAB 1: 科目Ⅱ 択一・過去問 ==================== -->
-    <section id="tab-quiz" class="tab-view">
+    <!-- ==================== TAB 3: 科目Ⅱ 択一・過去問 ==================== -->
+    <section id="tab-quiz" class="tab-view hidden">
       <div class="panel filter-bar">
         <div class="filter-row">
           <span class="filter-label">出題年度</span>
@@ -1321,7 +1457,8 @@
     };
 
     let ui = {
-      mainTab: "tab-quiz",
+      mainTab: "tab-home",
+      homeSubView: "roadmap",
       maskMode: false,
       quizYear: "all",
       quizCat: "all",
@@ -1924,40 +2061,291 @@
       return "";
     }
 
-    // ==================== Top Progress Summary ====================
-    function updateTopSummary() {
+    // ==================== Top Progress & Home Dashboard ====================
+    function getProgressStats() {
+      const clTotal = appData.clozeItems.length || 1;
+      const clMast = appData.clozeItems.filter(function(x) { return getUserRec(x.id).status === "mastered"; }).length;
+      const clRev = appData.clozeItems.filter(function(x) { return getUserRec(x.id).status === "review"; }).length;
+
+      const dbAll = [].concat(appData.commonSongs, appData.instruments, appData.terms, appData.composers);
+      const dbTotal = dbAll.length || 1;
+      const dbMast = dbAll.filter(function(x) { return getUserRec(x.id).status === "mastered"; }).length;
+      const dbRev = dbAll.filter(function(x) { return getUserRec(x.id).status === "review"; }).length;
+
       const qTotal = appData.quizQuestions.length || 1;
       const qMast = appData.quizQuestions.filter(function(q) { return getUserRec(q.id).status === "mastered"; }).length;
-      const qPct = Math.round((qMast / qTotal) * 100);
-      document.getElementById("statQuizPct").textContent = qPct + "%";
-      document.getElementById("statQuizFraction").textContent = qMast + " / " + qTotal;
-      document.getElementById("statQuizBar").style.width = qPct + "%";
-      document.getElementById("countTabQuiz").textContent = qTotal;
+      const qRev = appData.quizQuestions.filter(function(q) { return getUserRec(q.id).status === "review"; }).length;
 
       const pTotal = appData.pieces.length || 1;
       const pMast = appData.pieces.filter(function(p) { return getUserRec(p.id).status === "mastered"; }).length;
-      const pPct = Math.round((pMast / pTotal) * 100);
-      document.getElementById("statPiecePct").textContent = pPct + "%";
-      document.getElementById("statPieceFraction").textContent = pMast + " / " + pTotal;
-      document.getElementById("statPieceBar").style.width = pPct + "%";
-      document.getElementById("countTabPiece").textContent = pTotal;
+      const pRev = appData.pieces.filter(function(p) { return getUserRec(p.id).status === "review"; }).length;
 
       const gTotal = appData.guidanceItems.length || 1;
       const gMast = appData.guidanceItems.filter(function(g) { return getUserRec(g.id).status === "mastered"; }).length;
-      const gPct = Math.round((gMast / gTotal) * 100);
-      document.getElementById("statGuidancePct").textContent = gPct + "%";
-      document.getElementById("statGuidanceFraction").textContent = gMast + " / " + gTotal;
-      document.getElementById("statGuidanceBar").style.width = gPct + "%";
-      document.getElementById("countTabGuidance").textContent = gTotal;
+      const gRev = appData.guidanceItems.filter(function(g) { return getUserRec(g.id).status === "review"; }).length;
 
-      const cTotal = appData.commonSongs.length || 1;
-      const cMast = appData.commonSongs.filter(function(c) { return getUserRec(c.id).status === "mastered"; }).length;
-      const cPct = Math.round((cMast / cTotal) * 100);
-      document.getElementById("statDbPct").textContent = cPct + "%";
-      document.getElementById("statDbFraction").textContent = cMast + " / " + cTotal;
-      document.getElementById("statDbBar").style.width = cPct + "%";
+      const grandTotal = clTotal + dbTotal + qTotal + pTotal + gTotal;
+      const grandMast = clMast + dbMast + qMast + pMast + gMast;
+      const grandRev = clRev + dbRev + qRev + pRev + gRev;
+      const grandPct = Math.round((grandMast / grandTotal) * 100);
 
-      document.getElementById("countTabLog").textContent = appData.scoreLogs.length;
+      return {
+        cl: { total: clTotal, mast: clMast, rev: clRev, pct: Math.round((clMast / clTotal) * 100) },
+        db: { total: dbTotal, mast: dbMast, rev: dbRev, pct: Math.round((dbMast / dbTotal) * 100) },
+        q:  { total: qTotal,  mast: qMast,  rev: qRev,  pct: Math.round((qMast / qTotal) * 100) },
+        p:  { total: pTotal,  mast: pMast,  rev: pRev,  pct: Math.round((pMast / pTotal) * 100) },
+        g:  { total: gTotal,  mast: gMast,  rev: gRev,  pct: Math.round((gMast / gTotal) * 100) },
+        grand: { total: grandTotal, mast: grandMast, rev: grandRev, pct: grandPct }
+      };
+    }
+
+    function updateTopSummary() {
+      const st = getProgressStats();
+      const hp = document.getElementById("headerTotalPct");
+      if (hp) hp.textContent = st.grand.pct + "% (" + st.grand.mast + "/" + st.grand.total + ")";
+      const cQuiz = document.getElementById("countTabQuiz");
+      if (cQuiz) cQuiz.textContent = st.q.mast + "/" + st.q.total;
+      const cPiece = document.getElementById("countTabPiece");
+      if (cPiece) cPiece.textContent = st.p.mast + "/" + st.p.total;
+      const cGuidance = document.getElementById("countTabGuidance");
+      if (cGuidance) cGuidance.textContent = st.g.mast + "/" + st.g.total;
+      const cCloze = document.getElementById("countTabCloze");
+      if (cCloze) cCloze.textContent = st.cl.mast + "/" + st.cl.total + "条項";
+      const cDb = document.getElementById("countTabDb");
+      if (cDb) cDb.textContent = st.db.mast + "/" + st.db.total;
+      const cHome = document.getElementById("countTabHome");
+      if (cHome) cHome.textContent = st.grand.rev > 0 ? ("要復習 " + st.grand.rev) : (st.grand.pct + "%");
+    }
+
+    function renderHomeTab() {
+      const container = document.getElementById("homeDashboardContainer");
+      if (!container) return;
+      const st = getProgressStats();
+
+      // Collect all review items across all 5 modules
+      const reviewItems = [];
+      appData.clozeItems.forEach(function(c) {
+        if (getUserRec(c.id).status === "review") reviewItems.push({ type: "1. 指導要領穴埋め", title: c.title, tab: "tab-cloze", id: c.id });
+      });
+      appData.commonSongs.forEach(function(c) {
+        if (getUserRec(c.id).status === "review") reviewItems.push({ type: "2. 共通教材", title: "第" + c.grade + "学年『" + c.title + "』", tab: "tab-db", sub: "common", id: c.id });
+      });
+      appData.instruments.forEach(function(x) {
+        if (getUserRec(x.id).status === "review") reviewItems.push({ type: "2. 楽器・民族音楽", title: x.name, tab: "tab-db", sub: "instruments", id: x.id });
+      });
+      appData.terms.forEach(function(x) {
+        if (getUserRec(x.id).status === "review") reviewItems.push({ type: "2. 楽語・記号", title: x.term, tab: "tab-db", sub: "terms", id: x.id });
+      });
+      appData.composers.forEach(function(x) {
+        if (getUserRec(x.id).status === "review") reviewItems.push({ type: "2. 音楽史・人物", title: x.name, tab: "tab-db", sub: "composers", id: x.id });
+      });
+      appData.quizQuestions.forEach(function(q) {
+        if (getUserRec(q.id).status === "review") reviewItems.push({ type: "3. 科目Ⅱ過去問", title: q.year + " " + q.qNum + "（" + q.category + "）", tab: "tab-quiz", year: q.year, id: q.id });
+      });
+      appData.pieces.forEach(function(p) {
+        if (getUserRec(p.id).status === "review") reviewItems.push({ type: "4. 科目Ⅲ問1", title: p.title + "（" + p.composer + "）", tab: "tab-piece", id: p.id });
+      });
+      appData.guidanceItems.forEach(function(g) {
+        if (getUserRec(g.id).status === "review") reviewItems.push({ type: "5. 科目Ⅲ問2", title: g.gradeBand.replace(/（.*）/, "") + "：" + (g.title || g.code), tab: "tab-guidance", id: g.id });
+      });
+
+      let html =
+        '<div class="dash-hero">' +
+          '<div style="flex:1;min-width:260px;">' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">' +
+              '<span class="badge badge-primary">平成29年告示 学習指導要領 原文100%準拠</span>' +
+              '<span class="badge badge-accent">R3〜R7 過去問5年分完全収録</span>' +
+            '</div>' +
+            '<h2 style="font-size:20px;font-weight:900;margin-bottom:6px;">学習ダッシュボード（1.インプット ➔ 5.記述アウトプット）</h2>' +
+            '<p style="font-size:13.5px;color:var(--text-muted);">上のタブ <strong>1 ➔ 2 ➔ 3 ➔ 4 ➔ 5</strong> の順番で進めることで、指導要領・基礎知識の暗記から択一・論述まで無駄なく合格力がつきます。</p>' +
+            '<div class="stat-bar" style="height:10px;margin-top:10px;background:var(--surface);">' +
+              '<div class="stat-bar-fill" style="width:' + st.grand.pct + '%;"></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="dash-hero-stats">' +
+            '<div class="dash-kpi"><div class="dash-kpi-num" style="color:var(--primary);">' + st.grand.pct + '%</div><div class="dash-kpi-label">総合習得率 (' + st.grand.mast + '/' + st.grand.total + ')</div></div>' +
+            '<div class="dash-kpi"><div class="dash-kpi-num" style="color:var(--warn);">' + reviewItems.length + '件</div><div class="dash-kpi-label">★ 要復習アイテム</div></div>' +
+            '<div class="dash-kpi"><div class="dash-kpi-num" style="color:var(--success);">' + appData.scoreLogs.length + '回</div><div class="dash-kpi-label">記述自己採点ログ</div></div>' +
+          '</div>' +
+        '</div>';
+
+      // 5 Module Cards Grid
+      html += '<div class="dash-grid">' +
+        // 1. 指導要領 穴埋め
+        '<div class="dash-card" style="border-top:4px solid var(--primary);">' +
+          '<div>' +
+            '<div class="dash-card-top">' +
+              '<span class="badge badge-primary">STEP 1：土台インプット</span>' +
+              '<span style="font-size:13px;font-weight:800;color:var(--primary);">習得 ' + st.cl.mast + ' / ' + st.cl.total + ' 条項 (' + st.cl.pct + '%)</span>' +
+            '</div>' +
+            '<div class="dash-card-title">1. 学習指導要領 穴埋め暗記（全257空欄）</div>' +
+            '<div class="stat-bar" style="margin:8px 0;"><div class="stat-bar-fill" style="width:' + st.cl.pct + '%;"></div></div>' +
+            '<div class="dash-card-desc">平成29年告示『小学校学習指導要領（音楽）』第1目標〜第2各学年〜第3取扱いの全文を一言一句そのままタップ穴埋め＆4択道場で暗記します。</div>' +
+          '</div>' +
+          '<div class="dash-card-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="dash-launch" data-tab="tab-cloze" data-mode="sheet">👆 条文穴埋めシートを開く</button>' +
+            '<button type="button" class="btn" data-action="dash-launch" data-tab="tab-cloze" data-mode="quiz">🎯 4択テスト道場で演習</button>' +
+          '</div>' +
+        '</div>' +
+
+        // 2. 知識データベース
+        '<div class="dash-card" style="border-top:4px solid var(--primary);">' +
+          '<div>' +
+            '<div class="dash-card-top">' +
+              '<span class="badge badge-primary">STEP 2：知識インプット</span>' +
+              '<span style="font-size:13px;font-weight:800;color:var(--primary);">習得 ' + st.db.mast + ' / ' + st.db.total + ' 項目 (' + st.db.pct + '%)</span>' +
+            '</div>' +
+            '<div class="dash-card-title">2. 知識データベース＆1問1答カード</div>' +
+            '<div class="stat-bar" style="margin:8px 0;"><div class="stat-bar-fill" style="width:' + st.db.pct + '%;"></div></div>' +
+            '<div class="dash-card-desc">歌唱共通教材24曲・楽器と民族音楽42・楽語35・音楽史36・楽典図解を1項目1枚の要点カードと1問1答フラッシュカードで高速暗記します。</div>' +
+          '</div>' +
+          '<div class="dash-card-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="dash-launch" data-tab="tab-db" data-sub="common" data-mode="list">🎵 共通教材24曲カード</button>' +
+            '<button type="button" class="btn" data-action="dash-launch" data-tab="tab-db" data-sub="common" data-mode="flash">⚡ 1問1答フラッシュカード</button>' +
+            '<button type="button" class="btn" data-action="dash-launch" data-tab="tab-db" data-sub="theory" data-mode="list">📐 楽典・音階図解</button>' +
+          '</div>' +
+        '</div>' +
+
+        // 3. 科目Ⅱ 択一・過去問
+        '<div class="dash-card" style="border-top:4px solid var(--accent);">' +
+          '<div>' +
+            '<div class="dash-card-top">' +
+              '<span class="badge badge-accent">STEP 3：択一アウトプット</span>' +
+              '<span style="font-size:13px;font-weight:800;color:var(--accent);">習得 ' + st.q.mast + ' / ' + st.q.total + ' 問 (' + st.q.pct + '%)</span>' +
+            '</div>' +
+            '<div class="dash-card-title">3. 科目Ⅱ 択一・過去問演習（全56問）</div>' +
+            '<div class="stat-bar" style="margin:8px 0;"><div class="stat-bar-fill" style="width:' + st.q.pct + '%;"></div></div>' +
+            '<div class="dash-card-desc">令和7〜3年度の過去問50問＋予想問題6問を本番そのままの五線譜・運指図付きで演習。間違えた問題は自動で「★ 要復習」に登録されます。</div>' +
+          '</div>' +
+          '<div class="dash-card-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="dash-launch" data-tab="tab-quiz" data-year="all">📝 年度・分野別に解く</button>' +
+            '<button type="button" class="btn btn-accent" data-action="dash-launch" data-tab="tab-quiz" data-random="10">🎲 ランダム10問テスト</button>' +
+          '</div>' +
+        '</div>' +
+
+        // 4. 科目Ⅲ 問1（楽曲記述）
+        '<div class="dash-card" style="border-top:4px solid var(--success);">' +
+          '<div>' +
+            '<div class="dash-card-top">' +
+              '<span class="badge badge-success">STEP 4：記述アウトプット①</span>' +
+              '<span style="font-size:13px;font-weight:800;color:var(--success);">習得 ' + st.p.mast + ' / ' + st.p.total + ' 曲 (' + st.p.pct + '%)</span>' +
+            '</div>' +
+            '<div class="dash-card-title">4. 科目Ⅲ 問1：楽曲記述（全78曲）</div>' +
+            '<div class="stat-bar" style="margin:8px 0;"><div class="stat-bar-fill" style="width:' + st.p.pct + '%;"></div></div>' +
+            '<div class="dash-card-desc">過去5年出題24曲＋教科書鑑賞教材を網羅。「①時代・②国・③特徴・④演奏形態」の4要素ルーブリック＆100〜150字リアルタイム採点・YouTube試聴付き。</div>' +
+          '</div>' +
+          '<div class="dash-card-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="dash-launch" data-tab="tab-piece" data-source="past">🎼 過去問出題24曲を対策</button>' +
+            '<button type="button" class="btn btn-accent" data-action="dash-launch" data-tab="tab-piece" data-sim="5">🎲 本番形式：5曲ランダム出題</button>' +
+          '</div>' +
+        '</div>' +
+
+        // 5. 科目Ⅲ 問2（指導要領記述）
+        '<div class="dash-card" style="border-top:4px solid var(--success);">' +
+          '<div>' +
+            '<div class="dash-card-top">' +
+              '<span class="badge badge-success">STEP 5：記述アウトプット②</span>' +
+              '<span style="font-size:13px;font-weight:800;color:var(--success);">習得 ' + st.g.mast + ' / ' + st.g.total + ' 項目 (' + st.g.pct + '%)</span>' +
+            '</div>' +
+            '<div class="dash-card-title">5. 科目Ⅲ 問2：指導要領・指導法記述（22項目）</div>' +
+            '<div class="stat-bar" style="margin:8px 0;"><div class="stat-bar-fill" style="width:' + st.g.pct + '%;"></div></div>' +
+            '<div class="dash-card-desc">R6・R7型の「⑴指導上の留意点（160〜200字）＋⑵具体的な活動例（160〜200字）」18項目と、R3〜R5型の過去問横断論述4問をリアルタイム文字数採点で演習。</div>' +
+          '</div>' +
+          '<div class="dash-card-actions">' +
+            '<button type="button" class="btn btn-primary" data-action="dash-launch" data-tab="tab-guidance" data-grade="past">✏️ 過去問出題・関連テーマ</button>' +
+            '<button type="button" class="btn" data-action="dash-launch" data-tab="tab-guidance" data-grade="all">📄 全22テーマ一覧</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+      // Bottom Segmented Sub-View inside Home: 🗺️ 最短合格ロードマップ / 🚩 要復習ピックアップ / 📝 記述自己採点ログ
+      const sub = ui.homeSubView || "roadmap";
+      html +=
+        '<div class="panel" style="margin-bottom:14px;">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">' +
+            '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
+              '<button type="button" class="btn ' + (sub === "roadmap" ? "btn-primary" : "") + '" data-action="set-home-sub" data-val="roadmap">🗺️ 最短合格ロードマップ（勉強の進め方）</button>' +
+              '<button type="button" class="btn ' + (sub === "review" ? "btn-primary" : "") + '" data-action="set-home-sub" data-val="review">🚩 要復習ピックアップ（' + reviewItems.length + '件）</button>' +
+              '<button type="button" class="btn ' + (sub === "logs" ? "btn-primary" : "") + '" data-action="set-home-sub" data-val="logs">📝 記述自己採点ログ（' + appData.scoreLogs.length + '件）</button>' +
+            '</div>' +
+            (sub === "logs" && appData.scoreLogs.length > 0 ? '<button type="button" class="btn" data-action="clear-all-logs">採点ログをクリア</button>' : '') +
+          '</div>' +
+        '</div>';
+
+      if (sub === "review") {
+        html += '<div class="panel">' +
+          '<h3 style="font-size:16px;font-weight:800;margin-bottom:10px;">★「要復習」マーク中の項目（' + reviewItems.length + '件）</h3>';
+        if (reviewItems.length === 0) {
+          html += '<div style="color:var(--text-muted);font-size:14px;padding:12px 0;">現在「要復習」に設定されている項目はありません。クイズや4択道場で間違えた問題や、手動で「★ 要復習」にした項目がここに集約されます。</div>';
+        } else {
+          html += '<div style="display:flex;gap:8px;flex-wrap:wrap;">';
+          reviewItems.forEach(function(r) {
+            html += '<button type="button" class="btn" data-action="jump-review" data-tab="' + r.tab + '" data-id="' + (r.id || "") + '" data-sub="' + (r.sub || "") + '" data-year="' + (r.year || "") + '">' +
+              '<span class="badge badge-warn">' + escapeHtml(r.type) + '</span> ' + escapeHtml(r.title) + ' ➔</button>';
+          });
+          html += '</div>';
+        }
+        html += '</div>';
+      } else if (sub === "logs") {
+        if (appData.scoreLogs.length === 0) {
+          html += '<div class="panel" style="text-align:center;color:var(--text-muted);padding:24px;">まだ記述の自己採点ログがありません。「4. 科目Ⅲ 問1」「5. 科目Ⅲ 問2」タブで記述して「自己採点してログに記録」を押すとここに履歴が蓄積されます。</div>';
+        } else {
+          appData.scoreLogs.slice().reverse().forEach(function(log) {
+            html += '<div class="quiz-card">' +
+              '<div class="quiz-header">' +
+                '<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">' +
+                  '<span class="badge badge-primary">' + escapeHtml(log.type) + '</span>' +
+                  '<strong>' + escapeHtml(log.targetTitle) + '</strong>' +
+                  '<span class="badge badge-success">判定：' + escapeHtml(log.rank) + '（' + escapeHtml(log.charInfo) + '）</span>' +
+                '</div>' +
+                '<span style="font-size:12px;color:var(--text-muted);">' + escapeHtml(log.date) + '</span>' +
+              '</div>' +
+              '<div style="font-size:13.5px;white-space:pre-wrap;background:var(--surface-sub);padding:10px;border-radius:8px;margin-bottom:8px;">' +
+                '<strong>【あなたの解答】</strong>\n' + escapeHtml(log.userText) +
+              '</div>' +
+              '<div style="font-size:13px;white-space:pre-wrap;color:var(--text-muted);">' +
+                '<strong>【模範解答】</strong>\n' + escapeHtml(log.modelText) +
+              '</div>' +
+            '</div>';
+          });
+        }
+      } else {
+        // Roadmap view
+        html +=
+          '<div class="panel">' +
+            '<h3 style="font-size:16.5px;font-weight:800;margin-bottom:10px;">タブ順（1 ➔ 5）に沿った最短合格4ステップ</h3>' +
+            '<div class="info-grid" style="margin-bottom:14px;">' +
+              '<div class="info-cell" style="border-left:4px solid var(--primary);">' +
+                '<div class="info-cell-label">科目Ⅱ（択一・全10問）の目標：8〜10問正解</div>' +
+                '<div>・問1〜3：学習指導要領の条文穴埋め・正誤・共通教材の学年配当<br>・問3〜6：歌唱共通教材の伴奏譜（コードネーム・拍子・関係調・曲名・移動ド階名）<br>・問7〜10：ソプラノリコーダー・反復記号・楽器分類・楽語・音楽史・民謡と民族音楽</div>' +
+              '</div>' +
+              '<div class="info-cell" style="border-left:4px solid var(--accent);">' +
+                '<div class="info-cell-label">科目Ⅲ（専門記述・60分・大問2問）の目標：7割以上安定確保</div>' +
+                '<div>・<strong>問1（楽曲記述：5曲から2曲選択、各100〜150字）</strong>：①時代・②国や地域・③曲の特徴や様式や内容・④演奏の形態の4要素を記述。<br>・<strong>問2（指導要領記述）</strong>：⑴指導上の留意点（160〜200字）＋⑵具体的な活動例（160〜200字）、または横断テーマ論述。</div>' +
+              '</div>' +
+            '</div>' +
+            '<div style="display:flex;flex-direction:column;gap:10px;">' +
+              '<div class="info-cell">' +
+                '<strong style="color:var(--primary);font-size:14.5px;">Step 1（タブ1「指導要領 穴埋め」）：平成29年告示の条文骨格を固める</strong>' +
+                '<div style="margin-top:4px;font-size:13.3px;">まず「1. 指導要領 穴埋め」の条文シートと4択道場で、教科目標・各学年の目標・〔共通事項〕・第3の取扱い（移動ド唱法・君が代・和音I,IV,V,V7・音楽づくりの記録・要素一覧）をそのまま書けるレベルまで固めます（教採の記述・穴埋め対策に直結）。</div>' +
+              '</div>' +
+              '<div class="info-cell">' +
+                '<strong style="color:var(--primary);font-size:14.5px;">Step 2（タブ2「知識データベース」）：共通教材24曲・楽器・楽語・音楽史を1問1答で暗記</strong>' +
+                '<div style="margin-top:4px;font-size:13.3px;">「2. 知識データベース」の「⚡ 1問1答フラッシュカード」に切り替え、共通教材24曲（学年・拍子・調・指導要領表記）と楽器42・楽語35・音楽史36をスキマ時間に高速周回します。</div>' +
+              '</div>' +
+              '<div class="info-cell">' +
+                '<strong style="color:var(--accent);font-size:14.5px;">Step 3（タブ3「科目Ⅱ 択一過去問」）：過去問5年分50問＋予想6問で実戦演習</strong>' +
+                '<div style="margin-top:4px;font-size:13.3px;">「3. 科目Ⅱ 択一過去問」を年度別に解き、五線譜のコードネーム（G7, D7, A7, C7）・短音階3種・日本音階（都節・琉球）・リコーダー運指を実践確認します。</div>' +
+              '</div>' +
+              '<div class="info-cell">' +
+                '<strong style="color:var(--success);font-size:14.5px;">Step 4（タブ4・5「科目Ⅲ 問1・問2」）：黄金テンプレートで文字数・必須要素感覚を完成</strong>' +
+                '<div style="margin-top:4px;font-size:13.3px;">「4. 科目Ⅲ 問1」では過去問出題曲と鑑賞教材を4要素チェックが全て「✓」になるよう100〜150字で練習し、「5. 科目Ⅲ 問2」では指導事項の「⑴留意点＋⑵活動例（各160〜200字）」を模範解答写経→自力記述の順で仕上げます。</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+      }
+
+      container.innerHTML = html;
     }
 
     // ==================== TAB 1: Quiz Render ====================
@@ -1991,12 +2379,23 @@
         return;
       }
 
-      let html = "";
+      const ansCount = list.filter(function(q) { const a = getUserRec(q.id).answeredChoice; return a !== undefined && a !== null; }).length;
+      const corCount = list.filter(function(q) { const a = getUserRec(q.id).answeredChoice; return a === q.answerIndex; }).length;
+      let html = '<div class="quick-toc-bar">' +
+        '<span style="font-size:12.5px;font-weight:800;color:var(--text-muted);margin-right:4px;">表示中 ' + list.length + '問（解答済 ' + ansCount + ' / 正解 ' + corCount + '）：</span>';
+      list.forEach(function(q, idx) {
+        const rec = getUserRec(q.id);
+        const stCls = rec.status === "mastered" ? " mastered" : (rec.status === "review" ? " review" : "");
+        html += '<button type="button" class="toc-pill' + stCls + '" data-action="scroll-to-card" data-target="qcard_' + escapeHtml(q.id) + '">' +
+          escapeHtml(q.year) + ' ' + escapeHtml(q.qNum || ("#" + (idx + 1))) + '</button>';
+      });
+      html += '</div>';
+
       list.forEach(function(q, idx) {
         const rec = getUserRec(q.id);
         const answered = rec.answeredChoice;
         const showExp = answered !== undefined && answered !== null;
-        html += '<article class="quiz-card" data-qid="' + escapeHtml(q.id) + '">' +
+        html += '<article class="quiz-card" id="qcard_' + escapeHtml(q.id) + '" data-qid="' + escapeHtml(q.id) + '">' +
           '<div class="quiz-header">' +
             '<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">' +
               '<span class="badge badge-primary">' + escapeHtml(q.year) + ' ' + escapeHtml(q.qNum || ("#" + (idx + 1))) + '</span>' +
@@ -2436,8 +2835,19 @@
       }
 
       // Sheet mode (Tap to reveal each blank)
-      let html = '';
+      let html = '<div class="quick-toc-bar">' +
+        '<span style="font-size:12.5px;font-weight:800;color:var(--text-muted);margin-right:4px;">条項クイック移動（' + cards.length + '条項）：</span>';
+      cards.forEach(function(card, cIdx) {
+        const st = getUserRec(card.id).status;
+        const stCls = st === "mastered" ? " mastered" : (st === "review" ? " review" : "");
+        const shortTitle = card.title.replace(/^第2 各学年の目標及び内容 /, "").replace(/（全文）$/, "");
+        html += '<button type="button" class="toc-pill' + stCls + '" data-action="scroll-to-card" data-target="clcard_' + escapeHtml(card.id) + '">' +
+          (cIdx + 1) + '. ' + escapeHtml(shortTitle.slice(0, 18)) + '</button>';
+      });
+      html += '</div>';
+
       cards.forEach(function(card) {
+        const revCount = card.blanks.filter(function(_, idx) { return !!ui.clozeRevealedMap[card.id + "_" + idx]; }).length;
         const exBadges = (card.examYears || []).map(function(y) {
           return '<span class="badge badge-danger">' + escapeHtml(y) + '</span>';
         }).join(" ");
@@ -2454,7 +2864,7 @@
           return '<button type="button" class="cloze-blank-btn masked" data-action="toggle-cloze-blank" data-key="' + key + '" title="タップで正解を表示">(' + (idx + 1) + ') ？？？</button>';
         });
 
-        html += '<div class="quiz-card">' +
+        html += '<div class="quiz-card" id="clcard_' + escapeHtml(card.id) + '">' +
           '<div class="quiz-header">' +
             '<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">' +
               '<span class="badge badge-primary">' + escapeHtml(card.category) + '</span>' +
@@ -2462,6 +2872,7 @@
               '<strong style="font-size:15.5px;">' + escapeHtml(card.title) + '</strong>' +
             '</div>' +
             '<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">' +
+              '<span class="badge badge-neutral">表示中 ' + revCount + ' / ' + card.blanks.length + ' 空欄</span>' +
               '<button type="button" class="btn" style="padding:4px 9px;font-size:12px;" data-action="cloze-card-bulk" data-id="' + escapeHtml(card.id) + '" data-reveal="true">すべて表示</button>' +
               '<button type="button" class="btn" style="padding:4px 9px;font-size:12px;" data-action="cloze-card-bulk" data-id="' + escapeHtml(card.id) + '" data-reveal="false">すべて隠す</button>' +
               getStatusBtnHtml(card.id) +
@@ -2957,6 +3368,7 @@
 
     function renderAll() {
       updateTopSummary();
+      renderHomeTab();
       renderQuizTab();
       renderPieceTab();
       renderGuidanceTab();
@@ -3001,6 +3413,18 @@
 
     // ==================== Event Listeners ====================
     function initEvents() {
+      // Brand & Header Progress Pill -> Home
+      ["brandHomeBtn", "headerProgressBtn"].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("click", function() {
+            const homeBtn = document.querySelector('[data-main-tab="tab-home"]');
+            if (homeBtn) homeBtn.click();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+      });
+
       // Main Tabs
       document.querySelectorAll("[data-main-tab]").forEach(function(btn) {
         btn.addEventListener("click", function() {
@@ -3431,13 +3855,129 @@
           showToast(st === "mastered" ? "「習得済」に記録して次へ進みました" : "「要復習」に記録して次へ進みました");
           return;
         }
+        if (action === "set-home-sub") {
+          ui.homeSubView = actionEl.getAttribute("data-val");
+          renderHomeTab();
+          return;
+        }
+        if (action === "clear-all-logs") {
+          appData.scoreLogs = [];
+          saveState();
+          renderAll();
+          showToast("採点ログをクリアしました");
+          return;
+        }
+        if (action === "scroll-to-card") {
+          const targetId = actionEl.getAttribute("data-target");
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+        if (action === "dash-launch") {
+          const tab = actionEl.getAttribute("data-tab");
+          const mode = actionEl.getAttribute("data-mode");
+          const sub = actionEl.getAttribute("data-sub");
+          const yr = actionEl.getAttribute("data-year");
+          const rnd = actionEl.getAttribute("data-random");
+          const src = actionEl.getAttribute("data-source");
+          const sim = actionEl.getAttribute("data-sim");
+          const grd = actionEl.getAttribute("data-grade");
+
+          if (tab === "tab-cloze" && mode) {
+            ui.clozeMode = mode;
+          }
+          if (tab === "tab-db") {
+            if (sub) {
+              ui.dbSubTab = sub;
+              ui.dbGroup = "all";
+              document.querySelectorAll("#dbSubTabChips .chip").forEach(function(c) {
+                c.classList.toggle("active", c.getAttribute("data-val") === sub);
+              });
+            }
+            if (mode) ui.dbMode = mode;
+          }
+          if (tab === "tab-quiz") {
+            if (rnd === "10") {
+              const pool = appData.quizQuestions.slice();
+              for (let i = pool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+              }
+              ui.random10Ids = pool.slice(0, 10).map(function(q) { return q.id; });
+            } else if (yr) {
+              ui.random10Ids = null;
+              ui.quizYear = yr;
+              document.querySelectorAll("#quizYearChips .chip").forEach(function(c) {
+                c.classList.toggle("active", c.getAttribute("data-val") === yr);
+              });
+            }
+          }
+          if (tab === "tab-piece") {
+            if (sim === "5") {
+              const pool = appData.pieces.slice();
+              for (let i = pool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+              }
+              ui.pieceSimIds = pool.slice(0, 5).map(function(p) { return p.id; });
+              ui.selectedPieceId = ui.pieceSimIds[0];
+            } else if (src) {
+              ui.pieceSimIds = null;
+              ui.pieceSource = src;
+              document.querySelectorAll("#pieceSourceChips .chip").forEach(function(c) {
+                c.classList.toggle("active", c.getAttribute("data-val") === src);
+              });
+            }
+          }
+          if (tab === "tab-guidance" && grd) {
+            ui.guidanceGrade = grd;
+            document.querySelectorAll("#guidanceGradeChips .chip").forEach(function(c) {
+              c.classList.toggle("active", c.getAttribute("data-val") === grd);
+            });
+          }
+
+          const tabBtn = document.querySelector('[data-main-tab="' + tab + '"]');
+          if (tabBtn) tabBtn.click();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
         if (action === "jump-review") {
           const tab = actionEl.getAttribute("data-tab");
           const id = actionEl.getAttribute("data-id");
+          const sub = actionEl.getAttribute("data-sub");
           if (tab === "tab-piece" && id) ui.selectedPieceId = id;
           if (tab === "tab-guidance" && id) ui.selectedGuidanceId = id;
+          if (tab === "tab-db" && sub) {
+            ui.dbSubTab = sub;
+            ui.dbMode = "list";
+            document.querySelectorAll("#dbSubTabChips .chip").forEach(function(c) {
+              c.classList.toggle("active", c.getAttribute("data-val") === sub);
+            });
+          }
+          if (tab === "tab-cloze") {
+            ui.clozeMode = "sheet";
+            ui.clozeCat = "all";
+          }
+          if (tab === "tab-quiz") {
+            ui.random10Ids = null;
+            ui.quizYear = "all";
+            ui.quizCat = "all";
+          }
           const tabBtn = document.querySelector('[data-main-tab="' + tab + '"]');
           if (tabBtn) tabBtn.click();
+          if (tab === "tab-cloze" && id) {
+            setTimeout(function() {
+              const el = document.getElementById("clcard_" + id);
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 60);
+          } else if (tab === "tab-quiz" && id) {
+            setTimeout(function() {
+              const el = document.getElementById("qcard_" + id);
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 60);
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
           return;
         }
       });
